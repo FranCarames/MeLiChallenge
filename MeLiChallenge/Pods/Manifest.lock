@@ -1,3 +1,42 @@
-PODFILE CHECKSUM: db147871764cadb54faf14e25986a4e90cc97142
+PODS:
+  - Alamofire (5.9.0)
+  - Kingfisher (7.11.0)
+  - netfox (1.21.0)
+  - ObjectMapper (4.2.0)
+  - RxCocoa (6.6.0):
+    - RxRelay (= 6.6.0)
+    - RxSwift (= 6.6.0)
+  - RxRelay (6.6.0):
+    - RxSwift (= 6.6.0)
+  - RxSwift (6.6.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Kingfisher
+  - netfox
+  - ObjectMapper
+  - RxCocoa
+  - RxSwift
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Kingfisher
+    - netfox
+    - ObjectMapper
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+
+SPEC CHECKSUMS:
+  Alamofire: 02b772c9910e8eba1a079227c32fbd9e46c90a24
+  Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
+  netfox: 9d5cc727fe7576c4c7688a2504618a156b7d44b7
+  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+  RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
+  RxRelay: 45eaa5db8ee4fb50e5ebd57deec0159e97fa51e6
+  RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
+
+PODFILE CHECKSUM: ac9d89812206ca82025960863f85e456108df321
 
 COCOAPODS: 1.15.2
