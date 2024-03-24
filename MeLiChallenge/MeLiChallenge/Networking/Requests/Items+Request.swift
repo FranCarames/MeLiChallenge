@@ -29,8 +29,7 @@ extension Requests.Items {
         
         var request: RequestData {
             return RequestData(
-                endpoint:   "login",
-                method:     .post,
+                endpoint:   "/search",
                 parameters: parameters
             )
         }

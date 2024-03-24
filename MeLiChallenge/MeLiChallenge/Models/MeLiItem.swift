@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import ObjectMapper
 
-final class MeLiItem: NSObject, Decodable {
+final class MeLiItem: Mappable {
     
     var id:                 String?
     var title:              String?
-    var confition:          String?
+    var condition:          String?
     var thumbnailId:        String?
     var catalogProductId:   String?
     var listingTypeId:      String?
@@ -40,45 +41,41 @@ final class MeLiItem: NSObject, Decodable {
 //    discounts:null
 //    promotions:Array[0]
     var inventoryId:        String?
-    
-    enum CodingKeys: String, CodingKey {
-        case id                 = "id"
-        case title              = "title"
-        case confition          = "condition"
-        case thumbnailId        = "thumbnail_id"
-        case catalogProductId   = "catalog_product_id"
-        case listingTypeId      = "listing_type_id"
-        case permalink          = "permalink"
-        case buyingMode         = "buying_mode"
-        case siteId             = "site_id"
-        case categoryId         = "category_id"
-        case domainId           = "domain_id"
-        case thumbnail          = "thumbnail"
-        case currencyId         = "currency_id"
-        case orderBackend       = "order_backend"
-        case price              = "price"
-        case originalPrice      = "original_price"
-        case salePrice          = "sale_price"
-        case availableQuantity  = "available_quantity"
-        case officialStoreId    = "official_store_id"
-        case useThumbnailId     = "use_thumbnail_id"
-        case acceptsMercadoPago = "accepts_mercadopago"
-        case shipping           = "shipping"
-        case stopTime           = "stop_time"
-        case seller             = "seller"
-        case attributes         = "attributes"
-        case installments       = "installments"
-        case winnerItemId       = "winner_item_id"
-        case catalog_listing    = "catalog_listing"
-        case discounts          = "discounts"
-        case promotions         = "promotions"
-        case inventoryId        = "inventory_id"
-    }
-    
-    required convenience init(from decoder: Decoder) throws {
-        self.init()
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
+
+    required init?(map: Map) {}
+
+    func mapping(map: Map) {
+        id                 <- map["id"]
+        title              <- map["title"]
+        condition          <- map["condition"]
+        thumbnailId        <- map["thumbnail_id"]
+        catalogProductId   <- map["catalog_product_id"]
+        listingTypeId      <- map["listing_type_id"]
+        permalink          <- map["permalink"]
+        buyingMode         <- map["buying_mode"]
+        siteId             <- map["site_id"]
+        categoryId         <- map["category_id"]
+        domainId           <- map["domain_id"]
+        thumbnail          <- map["thumbnail"]
+        currencyId         <- map["currency_id"]
+        orderBackend       <- map["order_backend"]
+        price              <- map["price"]
+        originalPrice      <- map["original_price"]
+        salePrice          <- map["sale_price"]
+        availableQuantity  <- map[""]
+        officialStoreId    <- map["official_store_id"]
+        useThumbnailId     <- map["use_thumbnail_id"]
+        acceptsMercadoPago <- map["accepts_mercadopago"]
+        shipping           <- map["shipping"]
+//var stopTime:"2042-12-08T04:00:00.000Z"       "stop_time"
+        seller             <- map["seller"]
+        attributes         <- map["attributes"]
+        installments       <- map["installments"]
+        winnerItemId       <- map["winner_item_id"]
+        catalog_listing    <- map["catalog_listing"]
+//        discounts          <- map["discounts"]
+//        promotions         <- map["promotions"]
+        inventoryId        <- map["inventory_id"]
     }
 
     enum BuyMode: String {
@@ -90,7 +87,7 @@ final class MeLiItem: NSObject, Decodable {
     }
 }
 
-final class ItemShippingInfo: NSObject, Decodable {
+final class ItemShippingInfo: Mappable {
     
     var storePickUp:  Bool?
     var freeShipping: Bool?
@@ -110,36 +107,33 @@ final class ItemShippingInfo: NSObject, Decodable {
         case promise      = "promise"
     }
     
-    required convenience init(from decoder: Decoder) throws {
-        self.init()
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        storePickUp  = try container.decodeIfPresent(Bool.self, forKey: .storePickUp)
-        freeShipping = try container.decodeIfPresent(Bool.self, forKey: .freeShipping)
-        logisticType = try container.decodeIfPresent(String.self, forKey: .logisticType)
-        mode         = try container.decodeIfPresent(String.self, forKey: .mode)
-        tags         = try container.decodeIfPresent([String].self, forKey: .tags) ?? []
+    required init?(map: Map) {}
+
+    func mapping(map: Map) {
+        storePickUp  <- map["store_pick_up"]
+        freeShipping <- map["free_shipping"]
+        logisticType <- map["logistic_type"]
+        mode         <- map["mode"]
+        tags         <- map["tags"]
+//        benefits     <- map["benefits"]
+//        promise      <- map["promise"]
     }
 }
 
-final class ItemSeller: NSObject, Decodable {
+final class ItemSeller: Mappable {
     
     var id:       Int?
     var nickname: String?
     
-    enum CodingKeys: String, CodingKey {
-        case id       = "id"
-        case nickname = "nickname"
-    }
+    required init?(map: Map) {}
     
-    required convenience init(from decoder: Decoder) throws {
-        self.init()
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        id       = try container.decodeIfPresent(Int.self, forKey: .id)
-        nickname = try container.decodeIfPresent(String.self, forKey: .nickname)
+    func mapping(map: Map) {
+        id       <- map["id"]
+        nickname <- map["nickname"]
     }
 }
 
-final class ItemAttribute: NSObject, Decodable {
+final class ItemAttribute: Mappable {
     
     var id:                 String?
     var name:               String?
@@ -152,54 +146,37 @@ final class ItemAttribute: NSObject, Decodable {
     var source:             Int?
     var valueType:          String?
     
-    enum CodingKeys: String, CodingKey {
-        case id                 = "id"
-        case name               = "name"
-        case valueId            = "value_id"
-        case valueName          = "value_name"
-        case attributeGroupId   = "attribute_group_id"
-        case attributeGroupName = "attribute_group_name"
-        case valueStruct        = "value_struct"
-        case values             = "values"
-        case source             = "source"
-        case valueType          = "value_type"
-    }
-    
-    required convenience init(from decoder: Decoder) throws {
-        self.init()
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        id                 = try container.decodeIfPresent(String.self, forKey: .id)
-        name               = try container.decodeIfPresent(String.self, forKey: .name)
-        valueId            = try container.decodeIfPresent(String.self, forKey: .valueId)
-        valueName          = try container.decodeIfPresent(String.self, forKey: .valueName)
-        attributeGroupId   = try container.decodeIfPresent(String.self, forKey: .attributeGroupId)
-        attributeGroupName = try container.decodeIfPresent(String.self, forKey: .attributeGroupName)
-    //    valueStruct:Object
-    //    values:Array[1]
-        source             = try container.decodeIfPresent(Int.self, forKey: .source)
-        valueType          = try container.decodeIfPresent(String.self, forKey: .valueType)
+    required init?(map: Map) {}
+
+    func mapping(map: Map) {
+        id   <- map["id"]
+        name <- map["name"]
+        
+        id                 <- map["id"]
+        name               <- map["name"]
+        valueId            <- map["value_id"]
+        valueName          <- map["value_name"]
+        attributeGroupId   <- map["attribute_group_id"]
+        attributeGroupName <- map["attribute_group_name"]
+//        valueStruct        <- map["value_struct"]
+//        values             <- map["values"]
+        source             <- map["source"]
+        valueType          <- map["value_type"]
     }
 }
 
-final class ItemInstallment: NSObject, Decodable {
+final class ItemInstallment: Mappable {
     var quantity:   Int?
     var amount:     Double?
     var rate:       Double?
     var currencyId: String?
     
-    enum CodingKeys: String, CodingKey {
-        case quantity   = "quantity"
-        case amount     = "amount"
-        case rate       = "rate"
-        case currencyId = "currency_id"
-    }
-    
-    required convenience init(from decoder: Decoder) throws {
-        self.init()
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        quantity   = try container.decodeIfPresent(Int.self, forKey: .quantity)
-        amount     = try container.decodeIfPresent(Double.self, forKey: .amount)
-        rate       = try container.decodeIfPresent(Double.self, forKey: .rate)
-        currencyId = try container.decodeIfPresent(String.self, forKey: .currencyId)
+    required init?(map: Map) {}
+
+    func mapping(map: Map) {
+        quantity   <- map["quantity"]
+        amount     <- map["amount"]
+        rate       <- map["rate"]
+        currencyId <- map["currency_id"]
     }
 }

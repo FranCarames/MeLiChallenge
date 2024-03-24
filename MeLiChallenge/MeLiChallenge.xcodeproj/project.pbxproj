@@ -31,6 +31,17 @@
 		CE40C7F02BAA139B009853C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40C7EF2BAA139B009853C3 /* SceneDelegate.swift */; };
 		CE40C7F72BAA139D009853C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE40C7F62BAA139D009853C3 /* Assets.xcassets */; };
 		CE40C7FA2BAA139D009853C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE40C7F82BAA139D009853C3 /* LaunchScreen.storyboard */; };
+		CE618ECC2BB0954600BA7A8D /* AmountFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE618ECB2BB0954600BA7A8D /* AmountFormatters.swift */; };
+		CE618ED12BB099C300BA7A8D /* ItemListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE618ECF2BB099C300BA7A8D /* ItemListCollectionViewCell.swift */; };
+		CE618ED22BB099C300BA7A8D /* ItemListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE618ED02BB099C300BA7A8D /* ItemListCollectionViewCell.xib */; };
+		CE618ED62BB0A0E300BA7A8D /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE618ED42BB0A0E300BA7A8D /* ItemDetailViewController.swift */; };
+		CE618ED72BB0A0E300BA7A8D /* ItemDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE618ED52BB0A0E300BA7A8D /* ItemDetailViewController.xib */; };
+		CED1F05C2BAB9CB700A1EC75 /* ItemsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1F05A2BAB9CB700A1EC75 /* ItemsListViewController.swift */; };
+		CED1F05D2BAB9CB700A1EC75 /* ItemsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED1F05B2BAB9CB700A1EC75 /* ItemsListViewController.xib */; };
+		CED1F0602BAB9CC200A1EC75 /* ItemsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1F05F2BAB9CC200A1EC75 /* ItemsListViewModel.swift */; };
+		CEE21B292BACB32300086C57 /* ItemListGridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE21B272BACB32300086C57 /* ItemListGridCollectionViewCell.swift */; };
+		CEE21B2A2BACB32300086C57 /* ItemListGridCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE21B282BACB32300086C57 /* ItemListGridCollectionViewCell.xib */; };
+		CEE21B2D2BACB74600086C57 /* Kingfisher+GetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE21B2C2BACB74600086C57 /* Kingfisher+GetImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +73,17 @@
 		CE40C7F62BAA139D009853C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE40C7F92BAA139D009853C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE40C7FB2BAA139D009853C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE618ECB2BB0954600BA7A8D /* AmountFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountFormatters.swift; sourceTree = "<group>"; };
+		CE618ECF2BB099C300BA7A8D /* ItemListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE618ED02BB099C300BA7A8D /* ItemListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListCollectionViewCell.xib; sourceTree = "<group>"; };
+		CE618ED42BB0A0E300BA7A8D /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		CE618ED52BB0A0E300BA7A8D /* ItemDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemDetailViewController.xib; sourceTree = "<group>"; };
+		CED1F05A2BAB9CB700A1EC75 /* ItemsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsListViewController.swift; sourceTree = "<group>"; };
+		CED1F05B2BAB9CB700A1EC75 /* ItemsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemsListViewController.xib; sourceTree = "<group>"; };
+		CED1F05F2BAB9CC200A1EC75 /* ItemsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsListViewModel.swift; sourceTree = "<group>"; };
+		CEE21B272BACB32300086C57 /* ItemListGridCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListGridCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEE21B282BACB32300086C57 /* ItemListGridCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListGridCollectionViewCell.xib; sourceTree = "<group>"; };
+		CEE21B2C2BACB74600086C57 /* Kingfisher+GetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kingfisher+GetImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +141,7 @@
 			children = (
 				CE32A1AA2BAA467A001E8C8F /* Categories List */,
 				CE32A1A52BAA2BAB001E8C8F /* Items List */,
+				CE618ED32BB0A0CA00BA7A8D /* Item Detail */,
 				CE40C7ED2BAA139B009853C3 /* AppDelegate.swift */,
 				CE40C7EF2BAA139B009853C3 /* SceneDelegate.swift */,
 				CE40C7F82BAA139D009853C3 /* LaunchScreen.storyboard */,
@@ -150,6 +173,7 @@
 				CE32A1AB2BAA4699001E8C8F /* Base */,
 				CE32A1A02BAA22AC001E8C8F /* AppError.swift */,
 				CE3B1D502BAB83620078967D /* LoadingRelay.swift */,
+				CE618ECB2BB0954600BA7A8D /* AmountFormatters.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -157,6 +181,7 @@
 		CE32A1A22BAA2684001E8C8F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CEE21B2B2BACB74000086C57 /* Pods */,
 				CE3B1D452BAB7C7E0078967D /* Rx */,
 				CE32A1AE2BAA4779001E8C8F /* UI */,
 				CE32A1A32BAA268E001E8C8F /* Dictionary+ClearNulls.swift */,
@@ -167,6 +192,10 @@
 		CE32A1A52BAA2BAB001E8C8F /* Items List */ = {
 			isa = PBXGroup;
 			children = (
+				CEE21B262BACB2D400086C57 /* Cells */,
+				CED1F05E2BAB9CBC00A1EC75 /* View Model */,
+				CED1F05A2BAB9CB700A1EC75 /* ItemsListViewController.swift */,
+				CED1F05B2BAB9CB700A1EC75 /* ItemsListViewController.xib */,
 			);
 			path = "Items List";
 			sourceTree = "<group>";
@@ -253,6 +282,58 @@
 			path = MeLiChallenge;
 			sourceTree = "<group>";
 		};
+		CE618ECD2BB0999600BA7A8D /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+				CEE21B272BACB32300086C57 /* ItemListGridCollectionViewCell.swift */,
+				CEE21B282BACB32300086C57 /* ItemListGridCollectionViewCell.xib */,
+			);
+			path = Grid;
+			sourceTree = "<group>";
+		};
+		CE618ECE2BB099A400BA7A8D /* List */ = {
+			isa = PBXGroup;
+			children = (
+				CE618ECF2BB099C300BA7A8D /* ItemListCollectionViewCell.swift */,
+				CE618ED02BB099C300BA7A8D /* ItemListCollectionViewCell.xib */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		CE618ED32BB0A0CA00BA7A8D /* Item Detail */ = {
+			isa = PBXGroup;
+			children = (
+				CE618ED42BB0A0E300BA7A8D /* ItemDetailViewController.swift */,
+				CE618ED52BB0A0E300BA7A8D /* ItemDetailViewController.xib */,
+			);
+			path = "Item Detail";
+			sourceTree = "<group>";
+		};
+		CED1F05E2BAB9CBC00A1EC75 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				CED1F05F2BAB9CC200A1EC75 /* ItemsListViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		CEE21B262BACB2D400086C57 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CE618ECE2BB099A400BA7A8D /* List */,
+				CE618ECD2BB0999600BA7A8D /* Grid */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		CEE21B2B2BACB74000086C57 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CEE21B2C2BACB74600086C57 /* Kingfisher+GetImage.swift */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F363B85DC95E8EFBB8549E1D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,9 +404,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE3B1D4B2BAB7F2C0078967D /* CategoriesListViewController.xib in Resources */,
+				CEE21B2A2BACB32300086C57 /* ItemListGridCollectionViewCell.xib in Resources */,
 				CE40C7FA2BAA139D009853C3 /* LaunchScreen.storyboard in Resources */,
 				CE40C7F72BAA139D009853C3 /* Assets.xcassets in Resources */,
+				CED1F05D2BAB9CB700A1EC75 /* ItemsListViewController.xib in Resources */,
 				CE3B1D562BAB87010078967D /* CategoryItemTableViewCell.xib in Resources */,
+				CE618ED72BB0A0E300BA7A8D /* ItemDetailViewController.xib in Resources */,
+				CE618ED22BB099C300BA7A8D /* ItemListCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +465,7 @@
 			files = (
 				CE3B1D512BAB83620078967D /* LoadingRelay.swift in Sources */,
 				CE32A1A92BAA38F3001E8C8F /* MeLiItem.swift in Sources */,
+				CEE21B292BACB32300086C57 /* ItemListGridCollectionViewCell.swift in Sources */,
 				CE3B1D4A2BAB7F2C0078967D /* CategoriesListViewController.swift in Sources */,
 				CE32A1A42BAA268E001E8C8F /* Dictionary+ClearNulls.swift in Sources */,
 				CE32A1972BAA17D4001E8C8F /* Requests.swift in Sources */,
@@ -387,14 +473,20 @@
 				CE40C7EE2BAA139B009853C3 /* AppDelegate.swift in Sources */,
 				CE32A1AD2BAA46A3001E8C8F /* BaseViewController.swift in Sources */,
 				CE3B1D4F2BAB82850078967D /* CategoriesListViewModel.swift in Sources */,
+				CE618ED62BB0A0E300BA7A8D /* ItemDetailViewController.swift in Sources */,
 				CE3B1D422BAB7A3C0078967D /* MeLiCategory.swift in Sources */,
 				CE32A1A72BAA34CF001E8C8F /* GetItemsResponse.swift in Sources */,
+				CE618ECC2BB0954600BA7A8D /* AmountFormatters.swift in Sources */,
+				CED1F0602BAB9CC200A1EC75 /* ItemsListViewModel.swift in Sources */,
 				CE40C7F02BAA139B009853C3 /* SceneDelegate.swift in Sources */,
+				CEE21B2D2BACB74600086C57 /* Kingfisher+GetImage.swift in Sources */,
 				CE3B1D442BAB7B5D0078967D /* Categories+Request.swift in Sources */,
 				CE32A1B02BAA4780001E8C8F /* UIApplication+KeyWindow.swift in Sources */,
 				CE32A1A12BAA22AC001E8C8F /* AppError.swift in Sources */,
+				CE618ED12BB099C300BA7A8D /* ItemListCollectionViewCell.swift in Sources */,
 				CE32A19C2BAA19FE001E8C8F /* Items+Request.swift in Sources */,
 				CE32A1992BAA198C001E8C8F /* NetworkRequest.swift in Sources */,
+				CED1F05C2BAB9CB700A1EC75 /* ItemsListViewController.swift in Sources */,
 				CE3B1D552BAB87010078967D /* CategoryItemTableViewCell.swift in Sources */,
 				CE32A19E2BAA2108001E8C8F /* User.swift in Sources */,
 			);

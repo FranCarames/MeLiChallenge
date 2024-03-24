@@ -18,6 +18,8 @@ final class CategoriesListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Selecciona la categoria de tu producto"
+        
         tableViewSetup()
         observersSetup()
     }
@@ -33,19 +35,17 @@ final class CategoriesListViewController: BaseViewController {
         refreshControl.addTarget(self, action: #selector(retryApiCalls), for: .valueChanged)
         tableView.refreshControl = refreshControl
         
+        let insets = UIEdgeInsets(
+            top: 0, left: 0, bottom: UIApplication.shared.keyWindow_?.safeAreaInsets.bottom ?? 0, right: 0)
+        tableView.contentInset = insets
+        
+        tableView.separatorStyle = .singleLine
+        
         tableView.reloadData()
     }
     
     private func observersSetup() {
-//        viewModel.loading
-//            .distinctUntilChanged()
-//            .subscribe(
-//                onNext: { [weak self] isLoading in
-//                    guard !isLoading else { return }
-//                    self?.tableView.animateRefreshControl(isLoading)
-//                }
-//            )
-//            .disposed(by: disposeBag)
+        filterTf.rx.text.bind(to: viewModel.keyword).disposed(by: disposeBag)
         
         viewModel.categories
             .subscribe(
@@ -74,16 +74,9 @@ extension CategoriesListViewController: UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        switch viewModel.getCellType(for: indexPath) {
-//        case .eventScroll:
-//            break
-//        case .singleEvent(let event):
-//            let vc = EventDetailViewController(event: event)
-//            push(vc, hideTabBarWhenPushed: true)
-//        case .news(let new):
-//            let vc = NewsDetailViewController(new)
-//            push(vc, hideTabBarWhenPushed: true)
-//        }
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let category = viewModel.categories.value[indexPath.row]
+        let vc = ItemsListViewController(category: category)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

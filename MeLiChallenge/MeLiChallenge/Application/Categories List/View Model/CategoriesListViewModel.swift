@@ -51,7 +51,7 @@ extension CategoriesListViewController {
                 .subscribe(
                     onSuccess: { [weak self] categories in
                         self?.loading.requestFinished()
-                        self?.categories.accept(categories)
+                        self?.categories_.accept(categories)
                     },
                     onFailure: { [weak self] error in
                         self?.loading.requestFinished()

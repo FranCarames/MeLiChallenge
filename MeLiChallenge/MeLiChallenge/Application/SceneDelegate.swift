@@ -70,7 +70,6 @@ extension SceneDelegate {
         
         let vc = CategoriesListViewController()
         let navVC = UINavigationController(rootViewController: vc)
-        
         window?.rootViewController = navVC
 
         window?.overrideUserInterfaceStyle = .light
