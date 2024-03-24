@@ -20,7 +20,7 @@ target 'MeLiChallenge' do
   
   pod 'Cosmos'
   
-  pod 'netfox', :configurations => ['Debug']
+  pod 'SVProgressHUD'
 
 end
 

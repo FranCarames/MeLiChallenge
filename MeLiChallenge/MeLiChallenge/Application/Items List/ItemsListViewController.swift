@@ -56,6 +56,13 @@ final class ItemsListViewController: BaseViewController {
     private func observersSetup() {
         filterTf.rx.text.bind(to: viewModel.keyword).disposed(by: disposeBag)
         
+        viewModel.loading
+            .distinctUntilChanged()
+            .subscribe(
+                onNext: { isLoading in ProgressHUD.show(isLoading) }
+            )
+            .disposed(by: disposeBag)
+        
         viewModel.items
             .subscribe(
                 onNext: { [weak self] items in
@@ -67,6 +74,11 @@ final class ItemsListViewController: BaseViewController {
     
     @objc func retryApiCalls() {
         viewModel.getItems()
+    }
+    
+    @IBAction func filtersTapped() {
+        let vc = ItemsFilterViewController(availableFilters: viewModel.itemsResponse.value?.availableFilters ?? [])
+        present(BaseNavigationController(rootViewController: vc), animated: true)
     }
 }
 

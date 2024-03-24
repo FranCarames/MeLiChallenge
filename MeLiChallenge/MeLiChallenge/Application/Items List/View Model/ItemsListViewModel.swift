@@ -19,7 +19,7 @@ extension ItemsListViewController {
         let category: BehaviorRelay<MeLiCategory?>
         let selectedSort: BehaviorRelay<SortType?>
         
-        private let itemsResponse = BehaviorRelay<GetItemsResponse?>(value: nil)
+        let itemsResponse = BehaviorRelay<GetItemsResponse?>(value: nil)
         let items = BehaviorRelay(value: [MeLiItem]())
         
         init(category: MeLiCategory? = nil) {

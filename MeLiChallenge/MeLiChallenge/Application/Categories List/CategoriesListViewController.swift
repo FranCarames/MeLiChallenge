@@ -35,10 +35,6 @@ final class CategoriesListViewController: BaseViewController {
         let cellName = String(describing: CategoryItemTableViewCell.self)
         tableView.register(UINib(nibName: cellName, bundle: nil), forCellReuseIdentifier: cellName)
         
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(retryApiCalls), for: .valueChanged)
-        tableView.refreshControl = refreshControl
-        
         let insets = UIEdgeInsets(
             top: 0, left: 0, bottom: UIApplication.shared.keyWindow_?.safeAreaInsets.bottom ?? 0, right: 0)
         tableView.contentInset = insets
@@ -51,6 +47,13 @@ final class CategoriesListViewController: BaseViewController {
     private func observersSetup() {
         filterTf.rx.text.bind(to: viewModel.keyword).disposed(by: disposeBag)
         
+        viewModel.loading
+            .distinctUntilChanged()
+            .subscribe(
+                onNext: { isLoading in ProgressHUD.show(isLoading) }
+            )
+            .disposed(by: disposeBag)
+        
         viewModel.categories
             .subscribe(
                 onNext: { [weak self] categories in
@@ -58,10 +61,6 @@ final class CategoriesListViewController: BaseViewController {
                 }
             )
             .disposed(by: disposeBag)
-    }
-    
-    @objc func retryApiCalls() {
-        viewModel.getCategories()
     }
 }
 

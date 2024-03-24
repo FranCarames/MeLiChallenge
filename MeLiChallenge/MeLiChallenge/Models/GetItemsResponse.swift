@@ -17,7 +17,7 @@ final class GetItemsResponse: Mappable {
     var sort:                   SortType?
     var availableSorts:         [SortType] = []
 //    var filters
-//    var availableFilters
+    var availableFilters:       [GetItemsFilter] = []
 //    var pdpTracking
     
     required init?(map: Map) {}
@@ -30,7 +30,7 @@ final class GetItemsResponse: Mappable {
         sort                   <- map["sort"]
         availableSorts         <- map["available_sorts"]
 //        filters                <- map["filters"]
-//        availableFilters       <- map["available_filters"]
+        availableFilters       <- map["available_filters"]
 //        pdpTracking            <- map["pdp_tracking"]
     }
 }
@@ -66,5 +66,42 @@ final class SortType: Mappable, Equatable {
     
     static func == (lhs: SortType, rhs: SortType) -> Bool {
         return lhs.id == rhs.id
+    }
+}
+
+final class GetItemsFilter: Mappable {
+    
+    var id:     String?
+    var name:   String?
+    var type:   FilterType?
+    var values: [FilterValue] = []
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        id     <- map["id"]
+        name   <- map["name"]
+        type   <- map["type"]
+        values <- map["values"]
+    }
+    
+    enum FilterType: String {
+        case text
+        case boolean
+//        case range // no programado todavia
+    }
+}
+
+final class FilterValue: Mappable {
+    var id:      String?
+    var name:    String?
+    var results: Int?
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        id      <- map["id"]
+        name    <- map["name"]
+        results <- map["results"]
     }
 }
