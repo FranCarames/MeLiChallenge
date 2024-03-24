@@ -68,14 +68,14 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="EOz-wN-yiW" secondAttribute="trailing" id="6se-xt-XAP"/>
                 <constraint firstItem="fan-Pa-UVS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7oz-Y9-56s"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fan-Pa-UVS" secondAttribute="trailing" id="CIp-Ap-V3K"/>
                 <constraint firstAttribute="bottom" secondItem="fan-Pa-UVS" secondAttribute="bottom" id="PnD-IS-AAh"/>
                 <constraint firstItem="eyr-6y-EUa" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="VZv-xy-93s"/>
                 <constraint firstItem="fan-Pa-UVS" firstAttribute="top" secondItem="EOz-wN-yiW" secondAttribute="bottom" id="cVD-AQ-NnX"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="EOz-wN-yiW" secondAttribute="trailing" id="eXN-SN-x36"/>
                 <constraint firstItem="EOz-wN-yiW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="i5O-cF-pxo"/>
-                <constraint firstItem="EOz-wN-yiW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nUo-UJ-dyk"/>
+                <constraint firstItem="EOz-wN-yiW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="s6M-rC-caM"/>
             </constraints>
             <point key="canvasLocation" x="114" y="42"/>
         </view>

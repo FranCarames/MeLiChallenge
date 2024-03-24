@@ -15,7 +15,7 @@ extension ItemsListViewController {
         
         let loading = LoadingRelay()
         
-        private var category: MeLiCategory?
+        var category: MeLiCategory?
         
         private let itemsResponse = BehaviorRelay<GetItemsResponse?>(value: nil)
         let items = BehaviorRelay(value: [MeLiItem]())

@@ -77,11 +77,11 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rnh-Zh-yKO" secondAttribute="trailing" id="7sK-sm-cib"/>
                 <constraint firstItem="iio-vf-nrD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="87J-xV-lAo"/>
                 <constraint firstItem="Wze-lM-La5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KTC-VN-bqQ"/>
+                <constraint firstAttribute="trailing" secondItem="Wze-lM-La5" secondAttribute="trailing" id="OST-sd-xQq"/>
                 <constraint firstAttribute="bottom" secondItem="rnh-Zh-yKO" secondAttribute="bottom" id="PiT-df-gEx"/>
-                <constraint firstItem="Wze-lM-La5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XKm-sB-J5a"/>
-                <constraint firstItem="Wze-lM-La5" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="d35-jQ-3Mp"/>
                 <constraint firstItem="rnh-Zh-yKO" firstAttribute="top" secondItem="Wze-lM-La5" secondAttribute="bottom" id="fmm-wN-yRC"/>
                 <constraint firstItem="rnh-Zh-yKO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="g18-9X-R0N"/>
+                <constraint firstItem="Wze-lM-La5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="w32-Ix-gkg"/>
             </constraints>
             <point key="canvasLocation" x="140" y="42"/>
         </view>

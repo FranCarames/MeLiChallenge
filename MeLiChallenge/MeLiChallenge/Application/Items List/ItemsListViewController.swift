@@ -21,6 +21,7 @@ final class ItemsListViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = viewModel.category?.name
         
         collectionViewSetup()
         observersSetup()

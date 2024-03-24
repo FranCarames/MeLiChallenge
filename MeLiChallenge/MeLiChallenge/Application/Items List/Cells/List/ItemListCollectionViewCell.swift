@@ -31,13 +31,9 @@ final class ItemListCollectionViewCell: UICollectionViewCell {
         itemThumbImage.getImage(from: item.thumbnail)
         itemNameLabel.text = item.title
         
-        if let originalPrice = item.originalPrice,
-           let originalPriceStr = AmountFormatters.getMoneyAmount(for: Double(originalPrice)),
-           let salePrice = item.salePrice ?? item.price,
-            originalPrice > salePrice {
-            
-            let discountedPrice = originalPrice - salePrice
-            let discountPerc = Double(Double(discountedPrice) / Double(originalPrice)) * 100
+        if let discountPerc = item.discountPercentage,
+           let originalPrice = item.originalPrice,
+           let originalPriceStr = AmountFormatters.getMoneyAmount(for: Double(originalPrice)) {
             
             let labelAtt: [NSAttributedString.Key : Any] = [
                 .foregroundColor : UIColor.darkGray.cgColor,

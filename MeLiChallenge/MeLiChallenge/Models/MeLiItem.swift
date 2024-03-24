@@ -87,6 +87,33 @@ final class MeLiItem: Mappable {
     }
 }
 
+//  Getters
+extension MeLiItem {
+//    Busca por atributo con id: "ITEM_CONDITION" y devuelve su valor, si no lo encuentra retorna el valor del campo condition
+    var itemCondition: String? {
+        if let attributeCondition = attributes
+            .first(where: { $0.id == "ITEM_CONDITION" } )?
+            .valueName {
+            return attributeCondition
+        } else {
+            return (condition == "new") ? "Nuevo" : "Usado"
+        }
+    }
+    
+//    Calcula el porcentaje de descuento del articulo, si los precios son iguales retorna nil
+    var discountPercentage: Double? {
+        guard
+            let originalPrice = originalPrice, let salePrice = salePrice ?? price,
+            originalPrice > salePrice
+        else { return nil }
+        
+        let discountedPrice = originalPrice - salePrice
+        let discountPerc = Double(Double(discountedPrice) / Double(originalPrice)) * 100
+        
+        return discountPerc
+    }
+}
+
 final class ItemShippingInfo: Mappable {
     
     var storePickUp:  Bool?
