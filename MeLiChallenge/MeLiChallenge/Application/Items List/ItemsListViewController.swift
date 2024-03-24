@@ -10,6 +10,7 @@ import UIKit
 final class ItemsListViewController: BaseViewController {
     
     @IBOutlet weak var filterTf: UITextField!
+    @IBOutlet weak var filterContainer: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     private let viewModel: ViewModel
@@ -21,7 +22,10 @@ final class ItemsListViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = viewModel.category?.name
+        title = viewModel.category.value?.name
+        
+        filterContainer.layer.cornerRadius  = 12
+        filterContainer.layer.masksToBounds = true
         
         collectionViewSetup()
         observersSetup()
@@ -50,7 +54,7 @@ final class ItemsListViewController: BaseViewController {
     }
     
     private func observersSetup() {
-//        filterTf.rx.text.bind(to: viewModel.keyword).disposed(by: disposeBag)
+        filterTf.rx.text.bind(to: viewModel.keyword).disposed(by: disposeBag)
         
         viewModel.items
             .subscribe(

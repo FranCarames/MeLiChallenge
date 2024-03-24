@@ -27,8 +27,9 @@ class BaseNavigationController: UINavigationController {
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 
         navigationBar.titleTextAttributes = textAttributes
-        navigationBar.backIndicatorImage = UIImage(named: "chevron.left")?.withTintColor(.white)
-        navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "chevron.left")?.withTintColor(.white)
+        navigationBar.tintColor = .white
+        navigationBar.backIndicatorImage = #imageLiteral(resourceName: "chevron.left")
+        navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "chevron.left")
         
         navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.shadowImage = UIImage()

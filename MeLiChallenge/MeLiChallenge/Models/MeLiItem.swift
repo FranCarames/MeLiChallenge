@@ -35,6 +35,7 @@ final class MeLiItem: Mappable {
 //var stopTime:"2042-12-08T04:00:00.000Z"
     var seller:             ItemSeller?
     var attributes:         [ItemAttribute] = []
+    var variationsData:     Dictionary<String, Any>?
     var installments:       ItemInstallment?
     var winnerItemId:       String?
     var catalog_listing:    Bool?
@@ -62,7 +63,7 @@ final class MeLiItem: Mappable {
         price              <- map["price"]
         originalPrice      <- map["original_price"]
         salePrice          <- map["sale_price"]
-        availableQuantity  <- map[""]
+        availableQuantity  <- map["available_quantity"]
         officialStoreId    <- map["official_store_id"]
         useThumbnailId     <- map["use_thumbnail_id"]
         acceptsMercadoPago <- map["accepts_mercadopago"]
@@ -70,6 +71,7 @@ final class MeLiItem: Mappable {
 //var stopTime:"2042-12-08T04:00:00.000Z"       "stop_time"
         seller             <- map["seller"]
         attributes         <- map["attributes"]
+        variationsData     <- map["variations_data"]
         installments       <- map["installments"]
         winnerItemId       <- map["winner_item_id"]
         catalog_listing    <- map["catalog_listing"]
@@ -111,6 +113,17 @@ extension MeLiItem {
         let discountPerc = Double(Double(discountedPrice) / Double(originalPrice)) * 100
         
         return discountPerc
+    }
+    
+//    Calcula el porcentaje de descuento del articulo, si los precios son iguales retorna nil
+    var itemImageURLs: [String]? {
+        guard let variationsData = variationsData, variationsData.isEmpty == false else {
+            return nil
+        }
+        
+        return variationsData
+            .compactMap { $0.value as? Dictionary<String, Any?> }
+            .compactMap { $0["thumbnail"] as? String }
     }
 }
 

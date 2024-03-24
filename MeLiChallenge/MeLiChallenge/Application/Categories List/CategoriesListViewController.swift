@@ -11,6 +11,7 @@ import RxCocoa
 final class CategoriesListViewController: BaseViewController {
     
     @IBOutlet weak var filterTf: UITextField!
+    @IBOutlet weak var filterContainer: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     private let viewModel = ViewModel()
@@ -19,6 +20,9 @@ final class CategoriesListViewController: BaseViewController {
         super.viewDidLoad()
         
         title = "Selecciona la categoria de tu producto"
+        
+        filterContainer.layer.cornerRadius  = 12
+        filterContainer.layer.masksToBounds = true
         
         tableViewSetup()
         observersSetup()

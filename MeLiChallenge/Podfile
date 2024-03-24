@@ -18,6 +18,8 @@ target 'MeLiChallenge' do
   
   pod 'ObjectMapper'
   
+  pod 'Cosmos'
+  
   pod 'netfox', :configurations => ['Debug']
 
 end

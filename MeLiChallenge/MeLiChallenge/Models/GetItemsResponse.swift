@@ -52,7 +52,7 @@ final class PagingInfo: Mappable {
     }
 }
 
-final class SortType: Mappable {
+final class SortType: Mappable, Equatable {
     
     var id:   String?
     var name: String?
@@ -62,5 +62,9 @@ final class SortType: Mappable {
     func mapping(map: Map) {
         id   <- map["id"]
         name <- map["name"]
+    }
+    
+    static func == (lhs: SortType, rhs: SortType) -> Bool {
+        return lhs.id == rhs.id
     }
 }

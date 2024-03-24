@@ -15,13 +15,32 @@ extension ItemsListViewController {
         
         let loading = LoadingRelay()
         
-        var category: MeLiCategory?
+        let keyword:  BehaviorRelay<String?>
+        let category: BehaviorRelay<MeLiCategory?>
+        let selectedSort: BehaviorRelay<SortType?>
         
         private let itemsResponse = BehaviorRelay<GetItemsResponse?>(value: nil)
         let items = BehaviorRelay(value: [MeLiItem]())
         
         init(category: MeLiCategory? = nil) {
-            self.category = category
+            self.keyword  = .init(value: nil)
+            self.category = .init(value: category)
+            self.selectedSort = .init(value: nil)
+            
+            Observable
+                .combineLatest(
+                    keyword.distinctUntilChanged(),
+                    self.category.distinctUntilChanged(),
+                    selectedSort.skip(2).distinctUntilChanged()
+                )
+                .skip(1)
+                .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
+                .subscribe(
+                    onNext: { [weak self] _ in
+                        self?.getItems()
+                    }
+                )
+                .disposed(by: disposeBag)
             
             getItems()
             
@@ -29,13 +48,17 @@ extension ItemsListViewController {
                 .subscribe(
                     onNext: { [weak self] itemsResponse in
                         self?.items.accept(itemsResponse?.results ?? [])
+                        self?.selectedSort.accept(itemsResponse?.sort)
                     }
                 )
                 .disposed(by: disposeBag)
         }
         
         func getItems() {
-            let apiRequest = Requests.Items.Get(category: category?.id)
+            let apiRequest = Requests.Items.Get(
+                keyword:  keyword.value,
+                category: category.value?.id
+            )
             
             loading.requestStarted()
             

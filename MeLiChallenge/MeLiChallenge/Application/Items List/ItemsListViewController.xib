@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ItemsListViewController" customModule="MeLiChallenge" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="rnh-Zh-yKO" id="ze3-hD-7Pd"/>
+                <outlet property="filterContainer" destination="iio-vf-nrD" id="lZ5-Vl-2iE"/>
                 <outlet property="filterTf" destination="OFl-Bc-cMC" id="9Bs-gI-ttM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

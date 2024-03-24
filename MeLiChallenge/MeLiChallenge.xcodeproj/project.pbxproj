@@ -38,6 +38,13 @@
 		CE618ED72BB0A0E300BA7A8D /* ItemDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE618ED52BB0A0E300BA7A8D /* ItemDetailViewController.xib */; };
 		CE618EDA2BB0AD6800BA7A8D /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE618ED92BB0AD6800BA7A8D /* ItemDetailViewModel.swift */; };
 		CE618EDC2BB0BAEE00BA7A8D /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE618EDB2BB0BAEE00BA7A8D /* BaseNavigationController.swift */; };
+		CE618EE02BB0C1A700BA7A8D /* ItemImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE618EDE2BB0C1A700BA7A8D /* ItemImageCollectionViewCell.swift */; };
+		CE618EE12BB0C1A700BA7A8D /* ItemImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE618EDF2BB0C1A700BA7A8D /* ItemImageCollectionViewCell.xib */; };
+		CE618EE32BB0CEF500BA7A8D /* Cosmos+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE618EE22BB0CEF500BA7A8D /* Cosmos+Settings.swift */; };
+		CE618EE72BB0D3E600BA7A8D /* ItemsFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE618EE52BB0D3E600BA7A8D /* ItemsFilterViewController.swift */; };
+		CE618EE82BB0D3E600BA7A8D /* ItemsFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE618EE62BB0D3E600BA7A8D /* ItemsFilterViewController.xib */; };
+		CE618EEC2BB0D4E000BA7A8D /* QuerySortTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE618EEA2BB0D4E000BA7A8D /* QuerySortTypeTableViewCell.swift */; };
+		CE618EED2BB0D4E000BA7A8D /* QuerySortTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE618EEB2BB0D4E000BA7A8D /* QuerySortTypeTableViewCell.xib */; };
 		CED1F05C2BAB9CB700A1EC75 /* ItemsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1F05A2BAB9CB700A1EC75 /* ItemsListViewController.swift */; };
 		CED1F05D2BAB9CB700A1EC75 /* ItemsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED1F05B2BAB9CB700A1EC75 /* ItemsListViewController.xib */; };
 		CED1F0602BAB9CC200A1EC75 /* ItemsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED1F05F2BAB9CC200A1EC75 /* ItemsListViewModel.swift */; };
@@ -82,6 +89,13 @@
 		CE618ED52BB0A0E300BA7A8D /* ItemDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemDetailViewController.xib; sourceTree = "<group>"; };
 		CE618ED92BB0AD6800BA7A8D /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
 		CE618EDB2BB0BAEE00BA7A8D /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		CE618EDE2BB0C1A700BA7A8D /* ItemImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE618EDF2BB0C1A700BA7A8D /* ItemImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		CE618EE22BB0CEF500BA7A8D /* Cosmos+Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cosmos+Settings.swift"; sourceTree = "<group>"; };
+		CE618EE52BB0D3E600BA7A8D /* ItemsFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsFilterViewController.swift; sourceTree = "<group>"; };
+		CE618EE62BB0D3E600BA7A8D /* ItemsFilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemsFilterViewController.xib; sourceTree = "<group>"; };
+		CE618EEA2BB0D4E000BA7A8D /* QuerySortTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySortTypeTableViewCell.swift; sourceTree = "<group>"; };
+		CE618EEB2BB0D4E000BA7A8D /* QuerySortTypeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuerySortTypeTableViewCell.xib; sourceTree = "<group>"; };
 		CED1F05A2BAB9CB700A1EC75 /* ItemsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsListViewController.swift; sourceTree = "<group>"; };
 		CED1F05B2BAB9CB700A1EC75 /* ItemsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemsListViewController.xib; sourceTree = "<group>"; };
 		CED1F05F2BAB9CC200A1EC75 /* ItemsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsListViewModel.swift; sourceTree = "<group>"; };
@@ -196,6 +210,7 @@
 		CE32A1A52BAA2BAB001E8C8F /* Items List */ = {
 			isa = PBXGroup;
 			children = (
+				CE618EE42BB0D3C800BA7A8D /* Filters */,
 				CEE21B262BACB2D400086C57 /* Cells */,
 				CED1F05E2BAB9CBC00A1EC75 /* View Model */,
 				CED1F05A2BAB9CB700A1EC75 /* ItemsListViewController.swift */,
@@ -308,6 +323,7 @@
 		CE618ED32BB0A0CA00BA7A8D /* Item Detail */ = {
 			isa = PBXGroup;
 			children = (
+				CE618EDD2BB0C18400BA7A8D /* Images Cell */,
 				CE618ED82BB0AD6200BA7A8D /* View Model */,
 				CE618ED42BB0A0E300BA7A8D /* ItemDetailViewController.swift */,
 				CE618ED52BB0A0E300BA7A8D /* ItemDetailViewController.xib */,
@@ -321,6 +337,34 @@
 				CE618ED92BB0AD6800BA7A8D /* ItemDetailViewModel.swift */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		CE618EDD2BB0C18400BA7A8D /* Images Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CE618EDE2BB0C1A700BA7A8D /* ItemImageCollectionViewCell.swift */,
+				CE618EDF2BB0C1A700BA7A8D /* ItemImageCollectionViewCell.xib */,
+			);
+			path = "Images Cell";
+			sourceTree = "<group>";
+		};
+		CE618EE42BB0D3C800BA7A8D /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				CE618EE92BB0D4C500BA7A8D /* Sort Type Cell */,
+				CE618EE52BB0D3E600BA7A8D /* ItemsFilterViewController.swift */,
+				CE618EE62BB0D3E600BA7A8D /* ItemsFilterViewController.xib */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		CE618EE92BB0D4C500BA7A8D /* Sort Type Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CE618EEA2BB0D4E000BA7A8D /* QuerySortTypeTableViewCell.swift */,
+				CE618EEB2BB0D4E000BA7A8D /* QuerySortTypeTableViewCell.xib */,
+			);
+			path = "Sort Type Cell";
 			sourceTree = "<group>";
 		};
 		CED1F05E2BAB9CBC00A1EC75 /* View Model */ = {
@@ -344,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				CEE21B2C2BACB74600086C57 /* Kingfisher+GetImage.swift */,
+				CE618EE22BB0CEF500BA7A8D /* Cosmos+Settings.swift */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -417,7 +462,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE618EED2BB0D4E000BA7A8D /* QuerySortTypeTableViewCell.xib in Resources */,
 				CE3B1D4B2BAB7F2C0078967D /* CategoriesListViewController.xib in Resources */,
+				CE618EE82BB0D3E600BA7A8D /* ItemsFilterViewController.xib in Resources */,
+				CE618EE12BB0C1A700BA7A8D /* ItemImageCollectionViewCell.xib in Resources */,
 				CEE21B2A2BACB32300086C57 /* ItemListGridCollectionViewCell.xib in Resources */,
 				CE40C7FA2BAA139D009853C3 /* LaunchScreen.storyboard in Resources */,
 				CE40C7F72BAA139D009853C3 /* Assets.xcassets in Resources */,
@@ -483,18 +531,21 @@
 				CE3B1D4A2BAB7F2C0078967D /* CategoriesListViewController.swift in Sources */,
 				CE32A1A42BAA268E001E8C8F /* Dictionary+ClearNulls.swift in Sources */,
 				CE32A1972BAA17D4001E8C8F /* Requests.swift in Sources */,
+				CE618EE32BB0CEF500BA7A8D /* Cosmos+Settings.swift in Sources */,
 				CE3B1D472BAB7C8D0078967D /* Observable+Convenience.swift in Sources */,
 				CE40C7EE2BAA139B009853C3 /* AppDelegate.swift in Sources */,
 				CE618EDC2BB0BAEE00BA7A8D /* BaseNavigationController.swift in Sources */,
 				CE32A1AD2BAA46A3001E8C8F /* BaseViewController.swift in Sources */,
 				CE3B1D4F2BAB82850078967D /* CategoriesListViewModel.swift in Sources */,
 				CE618ED62BB0A0E300BA7A8D /* ItemDetailViewController.swift in Sources */,
+				CE618EE72BB0D3E600BA7A8D /* ItemsFilterViewController.swift in Sources */,
 				CE3B1D422BAB7A3C0078967D /* MeLiCategory.swift in Sources */,
 				CE32A1A72BAA34CF001E8C8F /* GetItemsResponse.swift in Sources */,
 				CE618ECC2BB0954600BA7A8D /* AmountFormatters.swift in Sources */,
 				CED1F0602BAB9CC200A1EC75 /* ItemsListViewModel.swift in Sources */,
 				CE40C7F02BAA139B009853C3 /* SceneDelegate.swift in Sources */,
 				CEE21B2D2BACB74600086C57 /* Kingfisher+GetImage.swift in Sources */,
+				CE618EE02BB0C1A700BA7A8D /* ItemImageCollectionViewCell.swift in Sources */,
 				CE3B1D442BAB7B5D0078967D /* Categories+Request.swift in Sources */,
 				CE32A1B02BAA4780001E8C8F /* UIApplication+KeyWindow.swift in Sources */,
 				CE32A1A12BAA22AC001E8C8F /* AppError.swift in Sources */,
@@ -502,6 +553,7 @@
 				CE32A19C2BAA19FE001E8C8F /* Items+Request.swift in Sources */,
 				CE618EDA2BB0AD6800BA7A8D /* ItemDetailViewModel.swift in Sources */,
 				CE32A1992BAA198C001E8C8F /* NetworkRequest.swift in Sources */,
+				CE618EEC2BB0D4E000BA7A8D /* QuerySortTypeTableViewCell.swift in Sources */,
 				CED1F05C2BAB9CB700A1EC75 /* ItemsListViewController.swift in Sources */,
 				CE3B1D552BAB87010078967D /* CategoryItemTableViewCell.swift in Sources */,
 				CE32A19E2BAA2108001E8C8F /* User.swift in Sources */,

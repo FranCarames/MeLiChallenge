@@ -19,6 +19,10 @@ extension ItemDetailViewController {
         
         let sellerItems = BehaviorRelay(value: [MeLiItem]())
         
+        var itemImages: [String] {
+            return item.itemImageURLs ?? [item.thumbnail ?? ""]
+        }
+        
         init(item: MeLiItem) {
             self.item = item
             

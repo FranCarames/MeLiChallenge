@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.9.0)
+  - Cosmos (25.0.1)
   - Kingfisher (7.11.0)
   - netfox (1.21.0)
   - ObjectMapper (4.2.0)
@@ -12,6 +13,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Cosmos
   - Kingfisher
   - netfox
   - ObjectMapper
@@ -21,6 +23,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Cosmos
     - Kingfisher
     - netfox
     - ObjectMapper
@@ -30,6 +33,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 02b772c9910e8eba1a079227c32fbd9e46c90a24
+  Cosmos: 02db0a1c953107049bfd2d7af19ceef55ecb7e98
   Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
   netfox: 9d5cc727fe7576c4c7688a2504618a156b7d44b7
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
@@ -37,6 +41,6 @@ SPEC CHECKSUMS:
   RxRelay: 45eaa5db8ee4fb50e5ebd57deec0159e97fa51e6
   RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
 
-PODFILE CHECKSUM: ac9d89812206ca82025960863f85e456108df321
+PODFILE CHECKSUM: 71359672d469f7b95be62f4d7a3106a63c77c9d0
 
 COCOAPODS: 1.15.2

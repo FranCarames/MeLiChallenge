@@ -10,12 +10,16 @@ import UIKit
 final class ItemDetailViewController: BaseViewController {
     
     @IBOutlet weak var itemConditionLabel: UILabel!
+    @IBOutlet weak var reviewStars: CosmosCustomView!
+    @IBOutlet weak var reviewsLabel: UILabel!
     @IBOutlet weak var itemNameLabel: UILabel!
-    @IBOutlet weak var itemThumbImage: UIImageView!
+    @IBOutlet weak var itemPicturesCollectionView: UICollectionView!
+    @IBOutlet weak var itemPicturesPageControl: UIPageControl!
     @IBOutlet weak var originalPriceLabel: UILabel!
     @IBOutlet weak var itemPriceLabel: UILabel!
     @IBOutlet weak var itemDiscountLabel: UILabel!
     @IBOutlet weak var installmentsLabel: UILabel!
+    @IBOutlet weak var itemStockLabel: UILabel!
     @IBOutlet weak var productFeaturesLabel: UILabel!
     @IBOutlet weak var sellerItemsView: UIView!
     @IBOutlet weak var sellerItemsCollectionView: UICollectionView!
@@ -32,6 +36,7 @@ final class ItemDetailViewController: BaseViewController {
         
         observersSetup()
         viewsSetup()
+        itemPicturesCollectionViewSetup()
         sellerCollectionViewSetup()
     }
     
@@ -48,8 +53,14 @@ final class ItemDetailViewController: BaseViewController {
     
     private func viewsSetup() {
         itemConditionLabel.text = viewModel.item.itemCondition
+        
+        reviewStars.rating = Double.random(in: 1...5)
+        reviewsLabel.text = "(\(Int.random(in: 1...1000)))"
+        
         itemNameLabel.text      = viewModel.item.title
-        itemThumbImage.getImage(from: viewModel.item.thumbnail)
+        
+        itemPicturesPageControl.numberOfPages = viewModel.itemImages.count
+        itemPicturesPageControl.currentPage   = 0
         
         if let discountPerc = viewModel.item.discountPercentage,
            let originalPrice = viewModel.item.originalPrice,
@@ -91,6 +102,17 @@ final class ItemDetailViewController: BaseViewController {
             installmentsLabel.isHidden = true
         }
         
+        if let stock = viewModel.item.availableQuantity, stock > 0 {
+            if stock == 1 {
+                itemStockLabel.text = "Stock disponible: Ultimo Disponible!"
+            } else {
+                let qty = (stock >= 100) ? "+100" : "\(stock)"
+                itemStockLabel.text = "Stock disponible: \(qty) unidades"
+            }
+        } else {
+            itemStockLabel.text = "No hay stock disponible"
+        }
+        
         let featuresStr = viewModel.item.attributes
             .filter( { $0.id != "ITEM_CONDITION" } ) // Ya lo muestro en otro label
             .compactMap { attribute in
@@ -103,6 +125,31 @@ final class ItemDetailViewController: BaseViewController {
             .joined(separator: "\n ● ")
         
         productFeaturesLabel.text = featuresStr
+    }
+    
+    private func shareButtonSetup() {
+        let shareButton = UIBarButtonItem(
+            image: UIImage(named: "square.and.arrow.up")?.withRenderingMode(.alwaysTemplate).withTintColor(.white),
+            style: .plain,
+            target: self,
+            action: #selector(shareTapped)
+        )
+        
+        navigationItem.setRightBarButton(shareButton, animated: true)
+    }
+    
+    @objc func shareTapped() {
+        
+    }
+    
+    private func itemPicturesCollectionViewSetup() {
+        itemPicturesCollectionView.delegate   = self
+        itemPicturesCollectionView.dataSource = self
+        
+        let cellName = String(describing: ItemImageCollectionViewCell.self)
+        itemPicturesCollectionView.register(UINib(nibName: cellName, bundle: nil), forCellWithReuseIdentifier: cellName)
+        
+        itemPicturesCollectionView.reloadData()
     }
     
     private func sellerCollectionViewSetup() {
@@ -121,37 +168,69 @@ final class ItemDetailViewController: BaseViewController {
 
 extension ItemDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.sellerItems.value.count
+        if collectionView == itemPicturesCollectionView {
+            return viewModel.itemImages.count
+        } else {
+            return viewModel.sellerItems.value.count
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cellName = String(describing: ItemListGridCollectionViewCell.self)
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName,
-                                                      for: indexPath) as! ItemListGridCollectionViewCell
-        cell.setup(with: viewModel.sellerItems.value[indexPath.row])
-        return cell
+        if collectionView == itemPicturesCollectionView {
+            let cellName = String(describing: ItemImageCollectionViewCell.self)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName,
+                                                          for: indexPath) as! ItemImageCollectionViewCell
+            cell.setup(with: viewModel.itemImages[indexPath.row])
+            return cell
+        } else {
+            let cellName = String(describing: ItemListGridCollectionViewCell.self)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName,
+                                                          for: indexPath) as! ItemListGridCollectionViewCell
+            cell.setup(with: viewModel.sellerItems.value[indexPath.row])
+            return cell
+        }
     }
 }
 
 extension ItemDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = collectionView.frame.height
-        return CGSize(width: (height * 2/3), height: height)
+        if collectionView == itemPicturesCollectionView {
+            return collectionView.frame.size
+        } else {
+            let height = collectionView.frame.height
+            return CGSize(width: (height * 2/3), height: height)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 8
+        return (collectionView == itemPicturesCollectionView) ? 0 : 8
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 8
+        return (collectionView == itemPicturesCollectionView) ? 0 : 8
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = viewModel.sellerItems.value[indexPath.row]
-        let vc = ItemDetailViewController(item: item)
-        navigationController?.pushViewController(vc, animated: true)
+        if collectionView == itemPicturesCollectionView {
+            
+        } else {
+            let item = viewModel.sellerItems.value[indexPath.row]
+            let vc = ItemDetailViewController(item: item)
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView == itemPicturesCollectionView {
+            itemPicturesPageControl.currentPage = scrollView.currentPage
+        }
+    }
+}
+
+extension UIScrollView {
+    var currentPage: Int {
+        return Int((contentOffset.x + (0.5 * frame.size.width)) / frame.width)
     }
 }

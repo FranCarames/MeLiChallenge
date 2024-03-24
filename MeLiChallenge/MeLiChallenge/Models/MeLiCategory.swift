@@ -8,7 +8,7 @@
 import Foundation
 import ObjectMapper
 
-final class MeLiCategory: Mappable {
+final class MeLiCategory: Mappable, Equatable {
     
     var id:   String?
     var name: String?
@@ -18,5 +18,9 @@ final class MeLiCategory: Mappable {
     func mapping(map: Map) {
         id   <- map["id"]
         name <- map["name"]
+    }
+    
+    static func == (lhs: MeLiCategory, rhs: MeLiCategory) -> Bool {
+        return lhs.id == rhs.id
     }
 }

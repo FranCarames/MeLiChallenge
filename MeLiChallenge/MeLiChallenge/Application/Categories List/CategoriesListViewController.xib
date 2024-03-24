@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoriesListViewController" customModule="MeLiChallenge" customModuleProvider="target">
             <connections>
+                <outlet property="filterContainer" destination="eyr-6y-EUa" id="ZaJ-VD-sF0"/>
                 <outlet property="filterTf" destination="1Ao-Tl-vbq" id="e8l-8C-ZAx"/>
                 <outlet property="tableView" destination="fan-Pa-UVS" id="qqz-eg-w0t"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
