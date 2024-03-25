@@ -17,13 +17,15 @@ extension Requests.Items {
         let category: String?
         let nickname: String?
         let sellerId: String?
+        var sortType: SortType?
         
         var parameters: Parameters {
             return [
                 "q"         : keyword,
                 "category"  : category,
                 "nickname"  : nickname,
-                "seller_id" : sellerId
+                "seller_id" : sellerId,
+                "sort"      : sortType?.id
             ]
         }
         
@@ -34,11 +36,12 @@ extension Requests.Items {
             )
         }
         
-        init(keyword: String? = nil, category: String? = nil, nickname: String? = nil, sellerId: String? = nil) {
+        init(keyword: String? = nil, category: String? = nil, nickname: String? = nil, sellerId: String? = nil, sortType: SortType? = nil) {
             self.keyword  = keyword
             self.category = category
             self.nickname = nickname
             self.sellerId = sellerId
+            self.sortType = sortType
         }
     }
 }

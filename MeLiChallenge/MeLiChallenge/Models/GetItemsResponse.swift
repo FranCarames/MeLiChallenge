@@ -7,6 +7,7 @@
 
 import Foundation
 import ObjectMapper
+import RxSwift
 
 final class GetItemsResponse: Mappable {
     
@@ -32,6 +33,9 @@ final class GetItemsResponse: Mappable {
         filters                <- map["filters"]
         availableFilters       <- map["available_filters"]
 //        pdpTracking            <- map["pdp_tracking"]
+        
+        sort?.isSelected = true
+        filters.forEach { $0.values.forEach { $0.isSelected = true } }
     }
 }
 
@@ -52,10 +56,12 @@ final class PagingInfo: Mappable {
     }
 }
 
-final class SortType: Mappable, Equatable {
+final class SortType: NSObject, Mappable {
     
     var id:   String?
     var name: String?
+    
+    @objc dynamic var isSelected: Bool = false
     
     required init?(map: Map) {}
     
@@ -69,7 +75,13 @@ final class SortType: Mappable, Equatable {
     }
 }
 
-final class GetItemsFilter: Mappable {
+extension Reactive where Base: SortType {
+    var isSelectedRx: Observable<Bool> {
+        return self.base.rx.observe(Bool.self, "isSelected").compactMap { $0 }
+    }
+}
+
+final class GetItemsFilter: NSObject, Mappable {
     
     var id:     String?
     var name:   String?
@@ -92,10 +104,19 @@ final class GetItemsFilter: Mappable {
     }
 }
 
-final class FilterValue: Mappable {
+//  Getters
+extension GetItemsFilter {
+    var isSelected: Bool {
+        return values.contains(where: { $0.isSelected == true }) == true
+    }
+}
+
+final class FilterValue: NSObject, Mappable {
     var id:      String?
     var name:    String?
     var results: Int?
+    
+    @objc dynamic var isSelected: Bool = false
     
     required init?(map: Map) {}
     
@@ -103,5 +124,11 @@ final class FilterValue: Mappable {
         id      <- map["id"]
         name    <- map["name"]
         results <- map["results"]
+    }
+}
+
+extension Reactive where Base: FilterValue {
+    var isSelectedRx: Observable<Bool> {
+        return self.base.rx.observe(Bool.self, "isSelected").compactMap { $0 }
     }
 }

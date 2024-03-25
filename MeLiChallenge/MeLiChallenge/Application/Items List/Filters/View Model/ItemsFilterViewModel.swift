@@ -13,10 +13,13 @@ extension ItemsFilterViewController {
     final class ViewModel {
         private let disposeBag = DisposeBag()
         
-        var selectedSort: SortType
-        var availableSorts: [SortType]
-        var selectedFilters:  [GetItemsFilter]
+        private let selectedSort:     SortType
+        private let availableSorts:   [SortType]
+        var selectedFilters:  [GetItemsFilter] // hacer lo mismo que con los sort y ya lo tenes champ
         var availableFilters: [GetItemsFilter]
+        
+        private(set) var sorts: [SortType]
+        private(set) var filters: [GetItemsFilter]
         
         var isSectionOpen: [Bool]
         
@@ -26,6 +29,9 @@ extension ItemsFilterViewController {
             self.availableSorts   = availableSorts
             self.selectedFilters  = selectedFilters
             self.availableFilters = availableFilters
+            
+            self.sorts   = [selectedSort] + availableSorts
+            self.filters = selectedFilters + availableFilters
             
             let sortTypeCount = 1
             let selectedFiltersCount = selectedFilters.count
@@ -43,24 +49,21 @@ extension ItemsFilterViewController {
             return sortTypeCount + selectedFiltersCount + filtersCount
         }
         
-        func getCellType(for section: Int) -> FilterCellType {
+        func getCellType(for section: Int) -> FilterSections {
             if section == 0 {
                 return .sortType
-            } else if section <= selectedFilters.count {
-                return .selectedFilter
             } else {
-                return .filter
+                return .filters
             }
         }
         
         func numberOfRows(in section: Int) -> Int {
             switch getCellType(for: section) {
             case .sortType:
-                return isSectionOpen[section] ? 1 + availableSorts.count : 0
-            case .selectedFilter:
-                return isSectionOpen[section] ? 1 + selectedFilters[getCorrectedIndex(for: section)].values.count : 0
-            case .filter:
-                return isSectionOpen[section] ? availableFilters[getCorrectedIndex(for: section)].values.count : 0
+                return isSectionOpen[section] ? sorts.count : 0
+            case .filters:
+//                TODO agregar +1 para las borrar el filtro
+                return isSectionOpen[section] ? filters[getCorrectedIndex(for: section)].values.count : 0
             }
         }
         
@@ -68,19 +71,44 @@ extension ItemsFilterViewController {
             switch getCellType(for: section) {
             case .sortType:
                 return 0
-            case .selectedFilter:
+            case .filters:
                 let correctedIndex = section - 1
-                return correctedIndex
-            case .filter:
-                let correctedIndex = section - selectedFilters.count - 1
                 return correctedIndex
             }
         }
+        
+        func newSortSelected(at index: Int) {
+            let oldActiveSort = sorts.first(where: { $0.isSelected == true })
+            let newSelectedSort = sorts[index]
+            
+            if oldActiveSort != newSelectedSort {
+                oldActiveSort?.isSelected = false
+                newSelectedSort.isSelected = true
+            }
+        }
+        
+        func newFilterSelected(at indexPath: IndexPath) {
+            let index = getCorrectedIndex(for: indexPath.section)
+            let filter = filters[index]
+            let oldActiveValue = filter.values.first(where: { $0.isSelected == true })
+            let newSelectedValue = filter.values[indexPath.row]
 
-        enum FilterCellType {
+            if oldActiveValue != newSelectedValue {
+                oldActiveValue?.isSelected = false
+                newSelectedValue.isSelected = true
+            }
+        }
+        
+        func resetFiltersTapped() {
+            sorts.forEach { $0.isSelected = false }
+            sorts.first?.isSelected = true
+            
+//            filr
+        }
+
+        enum FilterSections {
             case sortType
-            case selectedFilter
-            case filter
+            case filters
         }
     }
 }

@@ -15,14 +15,14 @@ final class ItemsListViewController: BaseViewController {
     
     private let viewModel: ViewModel
     
-    init(category: MeLiCategory? = nil) {
+    init(category: MeLiCategory) {
         viewModel = .init(category: category)
         super.init()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = viewModel.category.value?.name
+        title = viewModel.category.name
         
         filterContainer.layer.cornerRadius  = 12
         filterContainer.layer.masksToBounds = true
@@ -73,7 +73,7 @@ final class ItemsListViewController: BaseViewController {
     }
     
     @IBAction func filtersTapped() {
-        guard let selectedSort = viewModel.selectedSort.value else { return }
+        guard let selectedSort = viewModel.itemsResponse.value?.sort else { return }
         
         let vc = ItemsFilterViewController(
             selectedSort: selectedSort,
@@ -81,6 +81,8 @@ final class ItemsListViewController: BaseViewController {
             selectedFilters: viewModel.itemsResponse.value?.filters ?? [],
             availableFilters: viewModel.itemsResponse.value?.availableFilters ?? []
         )
+        
+        vc.setup(delegate: self)
         
         present(BaseNavigationController(rootViewController: vc), animated: true)
     }
@@ -132,5 +134,15 @@ extension ItemsListViewController: UICollectionViewDelegateFlowLayout {
         let item = viewModel.items.value[indexPath.row]
         let vc = ItemDetailViewController(item: item)
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension ItemsListViewController: ItemsFilterViewControllerDelegate {
+    func filtersUpdated(selectedSort: SortType, selectedFilters: [GetItemsFilter]) {
+        viewModel.getItems(
+            selectedSort: selectedSort
+        )
+//        viewModel.selectedSort.accept(selectedSort)
+//        viewModel.selectedFilters.accept(selectedFilters)
     }
 }
