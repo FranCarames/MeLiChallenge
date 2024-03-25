@@ -57,13 +57,28 @@ extension ItemsFilterViewController {
             }
         }
         
+        func needToShowClearFilter(in section: Int) -> Bool {
+            switch getCellType(for: section) {
+            case .sortType:
+                return false
+            case .filters:
+                let filter = filters[getCorrectedIndex(for: section)]
+                return filter.isSelected && filter.id != "category"
+            }
+        }
+        
         func numberOfRows(in section: Int) -> Int {
             switch getCellType(for: section) {
             case .sortType:
                 return isSectionOpen[section] ? sorts.count : 0
             case .filters:
-//                TODO agregar +1 para las borrar el filtro
-                return isSectionOpen[section] ? filters[getCorrectedIndex(for: section)].values.count : 0
+                if isSectionOpen[section] {
+                    let filter = filters[getCorrectedIndex(for: section)]
+                    let showClear = needToShowClearFilter(in: section) ? 1 : 0
+                    return filter.values.count + showClear
+                } else {
+                    return 0
+                }
             }
         }
         
@@ -87,15 +102,38 @@ extension ItemsFilterViewController {
             }
         }
         
-        func newFilterSelected(at indexPath: IndexPath) {
+        //        Retorna un bool que indica si la seccion necesita ser recargada para mostrar el eliminar filtro
+        func newFilterSelected(at indexPath: IndexPath) -> Bool {
             let index = getCorrectedIndex(for: indexPath.section)
             let filter = filters[index]
-            let oldActiveValue = filter.values.first(where: { $0.isSelected == true })
-            let newSelectedValue = filter.values[indexPath.row]
+            
+            let showClear = needToShowClearFilter(in: indexPath.section)
+            
+            if showClear {
+                if(indexPath.row == 0) { // Eliminar Filtro
+                    filter.values.forEach { $0.isSelected = false }
+                    return true
+                } else {
+                    let oldActiveValue = filter.values.first(where: { $0.isSelected == true })
+                    let newSelectedValue = filter.values[indexPath.row - 1]
 
-            if oldActiveValue != newSelectedValue {
-                oldActiveValue?.isSelected = false
-                newSelectedValue.isSelected = true
+                    if oldActiveValue != newSelectedValue {
+                        oldActiveValue?.isSelected = false
+                        newSelectedValue.isSelected = true
+                    }
+                    
+                    return (oldActiveValue == nil)
+                }
+            } else {
+                let oldActiveValue = filter.values.first(where: { $0.isSelected == true })
+                let newSelectedValue = filter.values[indexPath.row]
+
+                if oldActiveValue != newSelectedValue {
+                    oldActiveValue?.isSelected = false
+                    newSelectedValue.isSelected = true
+                }
+                
+                return (oldActiveValue == nil)
             }
         }
         
@@ -103,7 +141,11 @@ extension ItemsFilterViewController {
             sorts.forEach { $0.isSelected = false }
             sorts.first?.isSelected = true
             
-//            filr
+            filters.forEach { filter in
+                if filter.id != "category" {
+                    filter.values.forEach { $0.isSelected = false }
+                }
+            }
         }
 
         enum FilterSections {

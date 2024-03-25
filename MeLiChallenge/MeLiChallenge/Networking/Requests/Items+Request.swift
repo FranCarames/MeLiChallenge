@@ -17,16 +17,29 @@ extension Requests.Items {
         let category: String?
         let nickname: String?
         let sellerId: String?
-        var sortType: SortType?
+        let sortType: SortType?
+        let filters:  [GetItemsFilter]?
         
         var parameters: Parameters {
-            return [
+            var params = [
                 "q"         : keyword,
                 "category"  : category,
                 "nickname"  : nickname,
                 "seller_id" : sellerId,
                 "sort"      : sortType?.id
             ]
+            
+            filters?
+                .forEach({ filter in
+                    guard
+                        let filterId = filter.id,
+                        let selectedValueId = filter.values.first(where: { $0.isSelected == true })?.id
+                    else { return }
+                    
+                    params[filterId] = selectedValueId
+                })
+            
+            return params
         }
         
         var request: RequestData {
@@ -36,12 +49,13 @@ extension Requests.Items {
             )
         }
         
-        init(keyword: String? = nil, category: String? = nil, nickname: String? = nil, sellerId: String? = nil, sortType: SortType? = nil) {
+        init(keyword: String? = nil, category: String? = nil, nickname: String? = nil, sellerId: String? = nil, sortType: SortType? = nil, filters: [GetItemsFilter]? = nil) {
             self.keyword  = keyword
             self.category = category
             self.nickname = nickname
             self.sellerId = sellerId
             self.sortType = sortType
+            self.filters  = filters
         }
     }
 }

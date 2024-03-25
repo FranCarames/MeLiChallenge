@@ -140,9 +140,8 @@ extension ItemsListViewController: UICollectionViewDelegateFlowLayout {
 extension ItemsListViewController: ItemsFilterViewControllerDelegate {
     func filtersUpdated(selectedSort: SortType, selectedFilters: [GetItemsFilter]) {
         viewModel.getItems(
-            selectedSort: selectedSort
+            selectedSort: selectedSort,
+            selectedFilters: selectedFilters
         )
-//        viewModel.selectedSort.accept(selectedSort)
-//        viewModel.selectedFilters.accept(selectedFilters)
     }
 }

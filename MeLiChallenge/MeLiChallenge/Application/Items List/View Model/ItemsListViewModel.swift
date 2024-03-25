@@ -50,7 +50,8 @@ extension ItemsListViewController {
             let apiRequest = Requests.Items.Get(
                 keyword:  keyword.value,
                 category: category.id,
-                sortType: selectedSort
+                sortType: selectedSort,
+                filters:  selectedFilters
             )
             
             loading.requestStarted()

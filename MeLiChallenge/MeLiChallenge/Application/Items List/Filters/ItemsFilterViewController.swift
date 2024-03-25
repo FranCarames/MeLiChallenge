@@ -63,15 +63,6 @@ final class ItemsFilterViewController: BaseViewController {
     }
     
     private func observersSetup() {
-//        filterTf.rx.text.bind(to: viewModel.keyword).disposed(by: disposeBag)
-//        
-//        viewModel.categories
-//            .subscribe(
-//                onNext: { [weak self] categories in
-//                    self?.tableView.reloadData()
-//                }
-//            )
-//            .disposed(by: disposeBag)
     }
     
     private func buttonsSetup() {
@@ -98,7 +89,8 @@ final class ItemsFilterViewController: BaseViewController {
     }
     
     @objc private func resetFiltersTapped() {
-        print("TODO resetFiltersTapped")
+        viewModel.resetFiltersTapped()
+        tableView.reloadData()
     }
     
     @IBAction func acceptChangesTapped() {
@@ -139,14 +131,20 @@ extension ItemsFilterViewController: UITableViewDelegate, UITableViewDataSource 
         case .sortType:
             cell.setup(with: viewModel.sorts[indexPath.row])
         case .filters:
-//            if(indexPath.row == 0) {
-//                cell.setup(with: "Eliminar filtro", isSelected: false)
-//            } else {
-                let index = viewModel.getCorrectedIndex(for: indexPath.section)
-//                let filter = viewModel.selectedFilters[index].values[indexPath.row - 1]
+            let index = viewModel.getCorrectedIndex(for: indexPath.section)
+            let filter = viewModel.filters[index]
+            
+            if viewModel.needToShowClearFilter(in: indexPath.section) {
+                if(indexPath.row == 0) {
+                    cell.setup(with: "Eliminar Filtro", isSelected: false)
+                } else {
+                    let filterValue = filter.values[indexPath.row - 1]
+                    cell.setup(with: filterValue)
+                }
+            } else {
                 let filter = viewModel.filters[index].values[indexPath.row]
                 cell.setup(with: filter)
-//            }
+            }
         }
         return cell
     }
@@ -156,12 +154,13 @@ extension ItemsFilterViewController: UITableViewDelegate, UITableViewDataSource 
         case .sortType:
             viewModel.newSortSelected(at: indexPath.row)
         case .filters:
+            let needToRefresh = viewModel.newFilterSelected(at: indexPath)
             
-//            if(indexPath.row == 0) {
-//                TODO agregar eliminar filtro
-//            } else {
-            viewModel.newFilterSelected(at: indexPath)
-//            }
+            if needToRefresh {
+                tableView.performBatchUpdates { [weak self] in
+                    self?.tableView.reloadSections(IndexSet(integer: indexPath.section), with: .automatic)
+                }
+            }
         }
     }
     
@@ -174,12 +173,7 @@ extension ItemsFilterViewController: UITableViewDelegate, UITableViewDataSource 
             view.setup(with: "Ordenar por:", isSectionOpen: isSectionOpen, index: section, delegate: self)
         case .filters:
             let index = viewModel.getCorrectedIndex(for: section)
-//            view.setup(with: viewModel.filters[index], isSectionOpen: isSectionOpen, index: section, delegate: self)
             view.setup(with: viewModel.filters[index].name, isSectionOpen: viewModel.isSectionOpen[index], index: section, delegate: self)
-//        case .filter:
-//            let index = viewModel.getCorrectedIndex(for: section)
-//            view.setup(with: viewModel.availableFilters[index].name, isSectionOpen: isSectionOpen, index: section, delegate: self)
-//            break
         }
         return view
     }
