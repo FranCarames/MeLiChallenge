@@ -13,6 +13,8 @@ protocol ItemsFilterViewControllerDelegate: AnyObject {
 
 final class ItemsFilterViewController: BaseViewController {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var acceptButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
@@ -53,8 +55,7 @@ final class ItemsFilterViewController: BaseViewController {
         let cellName = String(describing: FilterValueTableViewCell.self)
         tableView.register(UINib(nibName: cellName, bundle: nil), forCellReuseIdentifier: cellName)
         
-        let insets = UIEdgeInsets(
-            top: 0, left: 0, bottom: (UIApplication.shared.keyWindow_?.safeAreaInsets.bottom ?? 0) + 56, right: 0)
+        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 72, right: 0)
         tableView.contentInset = insets
         
         tableView.separatorStyle = .singleLine
@@ -77,13 +78,13 @@ final class ItemsFilterViewController: BaseViewController {
     
     private func resetButtonSetup() {
         let resetButton = UIBarButtonItem(
-            image: UIImage(systemName: "eraser")?
-                    .withRenderingMode(.alwaysTemplate)
-                    .withTintColor(.white),
+            image: UIImage(systemName: "eraser")?.withRenderingMode(.alwaysTemplate),
             style: .plain,
             target: self,
             action: #selector(resetFiltersTapped)
         )
+        
+        resetButton.tintColor = .white
         
         navigationItem.setRightBarButton(resetButton, animated: true)
     }

@@ -10,6 +10,8 @@ import RxCocoa
 
 final class CategoriesListViewController: BaseViewController {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
+    
     @IBOutlet weak var filterTf: UITextField!
     @IBOutlet weak var filterContainer: UIView!
     @IBOutlet weak var tableView: UITableView!

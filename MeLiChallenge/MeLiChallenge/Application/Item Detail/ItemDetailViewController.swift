@@ -9,6 +9,8 @@ import UIKit
 
 final class ItemDetailViewController: BaseViewController {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
+    
     @IBOutlet weak var itemConditionLabel: UILabel!
     @IBOutlet weak var reviewStars: CosmosCustomView!
     @IBOutlet weak var reviewsLabel: UILabel!
