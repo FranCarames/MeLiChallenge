@@ -2,7 +2,7 @@
 //  UIViewController+Convenience.swift
 //  MeLiChallenge
 //
-//  Created by InfinixSoft on 25/03/2024.
+//  Created by Franco Carames on 25/03/2024.
 //
 
 import UIKit
