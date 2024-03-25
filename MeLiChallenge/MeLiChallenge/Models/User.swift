@@ -15,8 +15,8 @@ final class User: NSObject, Decodable {
     var birthday: String?
     
     enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
+        case id       = "id"
+        case name     = "name"
         case username = "username_profile"
         case birthday = "birthday_st"
     }

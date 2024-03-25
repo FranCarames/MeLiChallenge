@@ -48,6 +48,7 @@ extension CategoriesListViewController {
             
             apiRequest
                 .apiCall(modelArray: MeLiCategory.self)
+                .showError(true)
                 .subscribe(
                     onSuccess: { [weak self] categories in
                         self?.loading.requestFinished()

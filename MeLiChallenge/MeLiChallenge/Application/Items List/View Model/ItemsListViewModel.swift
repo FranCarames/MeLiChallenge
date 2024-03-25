@@ -27,7 +27,7 @@ extension ItemsListViewController {
             
             keyword.distinctUntilChanged()
                 .skip(1)
-                .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
+                .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
                 .subscribe(
                     onNext: { [weak self] _ in
                         self?.getItems()
@@ -50,14 +50,15 @@ extension ItemsListViewController {
             let apiRequest = Requests.Items.Get(
                 keyword:  keyword.value,
                 category: category.id,
-                sortType: selectedSort,
-                filters:  selectedFilters
+                sortType: selectedSort ?? itemsResponse.value?.sort,
+                filters:  selectedFilters ?? itemsResponse.value?.filters
             )
             
             loading.requestStarted()
             
             apiRequest
                 .apiCall(model: GetItemsResponse.self)
+                .showError(true)
                 .subscribe(
                     onSuccess: { [weak self] itemsResponse in
                         self?.loading.requestFinished()

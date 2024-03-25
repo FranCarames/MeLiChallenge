@@ -42,6 +42,12 @@ final class ItemDetailViewController: BaseViewController {
         sellerCollectionViewSetup()
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        itemPicturesCollectionView.layoutIfNeeded()
+        itemPicturesCollectionView.reloadData()
+    }
+    
     private func observersSetup() {
         viewModel.sellerItems
             .subscribe(

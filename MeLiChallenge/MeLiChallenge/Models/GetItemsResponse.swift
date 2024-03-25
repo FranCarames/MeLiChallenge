@@ -100,7 +100,7 @@ final class GetItemsFilter: NSObject, Mappable {
     enum FilterType: String {
         case text
         case boolean
-//        case range // no programado todavia
+        case range
     }
 }
 

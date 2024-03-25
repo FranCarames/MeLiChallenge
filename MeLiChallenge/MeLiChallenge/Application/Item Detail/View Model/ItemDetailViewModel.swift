@@ -51,10 +51,3 @@ extension ItemDetailViewController {
         }
     }
 }
-
-//final class ViewModel {
-//    
-//    private let itemsResponse = BehaviorRelay<GetItemsResponse?>(value: nil)
-//    
-    
-//}

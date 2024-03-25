@@ -116,13 +116,6 @@ struct RequestData {
 
         self.path    = Requests.apisBaseURL + endpoint
         self.method  = method
-        
-//        var headers = headers
-
-//        if authenticated, let accessToken = User.getCurrentUser()?.accessToken {
-//            headers["Authorization"] = "Bearer \(accessToken)"
-//        }
-
         self.headers    = headers
         self.parameters = parameters
     }

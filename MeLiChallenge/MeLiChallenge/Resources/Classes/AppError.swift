@@ -29,11 +29,6 @@ final class AppError: NSObject, LocalizedError {
     static let emptyResponse     = AppError("Empty response")
     static let parsingError      = AppError("Parsing error")
     static let invalidStatusCode = AppError("Invalid Status Code")
-    
-//    Este se va a mostrar cuando borren el usuario y falle una api
-    static let unauthorized = AppError("La sesión caduco.")
-    
-    static let invalidUser = AppError("Ese usuario no existe.")
 }
 
 final class DDUnhandledNetworkingError: NSObject, LocalizedError {

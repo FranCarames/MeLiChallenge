@@ -56,6 +56,8 @@
 		CEE21B292BACB32300086C57 /* ItemListGridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE21B272BACB32300086C57 /* ItemListGridCollectionViewCell.swift */; };
 		CEE21B2A2BACB32300086C57 /* ItemListGridCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE21B282BACB32300086C57 /* ItemListGridCollectionViewCell.xib */; };
 		CEE21B2D2BACB74600086C57 /* Kingfisher+GetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE21B2C2BACB74600086C57 /* Kingfisher+GetImage.swift */; };
+		CEE3451F2BB1D18100393826 /* Single+ShowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3451E2BB1D18100393826 /* Single+ShowError.swift */; };
+		CEE345212BB1D1E500393826 /* UIViewController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE345202BB1D1E500393826 /* UIViewController+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +114,8 @@
 		CEE21B272BACB32300086C57 /* ItemListGridCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListGridCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEE21B282BACB32300086C57 /* ItemListGridCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListGridCollectionViewCell.xib; sourceTree = "<group>"; };
 		CEE21B2C2BACB74600086C57 /* Kingfisher+GetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kingfisher+GetImage.swift"; sourceTree = "<group>"; };
+		CEE3451E2BB1D18100393826 /* Single+ShowError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+ShowError.swift"; sourceTree = "<group>"; };
+		CEE345202BB1D1E500393826 /* UIViewController+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				CE32A1AF2BAA4780001E8C8F /* UIApplication+KeyWindow.swift */,
+				CEE345202BB1D1E500393826 /* UIViewController+Convenience.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				CE3B1D462BAB7C8D0078967D /* Observable+Convenience.swift */,
+				CEE3451E2BB1D18100393826 /* Single+ShowError.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -593,12 +599,14 @@
 				CE618ED12BB099C300BA7A8D /* ItemListCollectionViewCell.swift in Sources */,
 				CE32A19C2BAA19FE001E8C8F /* Items+Request.swift in Sources */,
 				CE618EFF2BB0E5A300BA7A8D /* ProgressHUD.swift in Sources */,
+				CEE345212BB1D1E500393826 /* UIViewController+Convenience.swift in Sources */,
 				CE618EDA2BB0AD6800BA7A8D /* ItemDetailViewModel.swift in Sources */,
 				CE32A1992BAA198C001E8C8F /* NetworkRequest.swift in Sources */,
 				CE618EF32BB0DD4A00BA7A8D /* FilterHeaderView.swift in Sources */,
 				CE618EFC2BB0E0EC00BA7A8D /* FilterValueTableViewCell.swift in Sources */,
 				CED1F05C2BAB9CB700A1EC75 /* ItemsListViewController.swift in Sources */,
 				CE3B1D552BAB87010078967D /* CategoryItemTableViewCell.swift in Sources */,
+				CEE3451F2BB1D18100393826 /* Single+ShowError.swift in Sources */,
 				CE618EF92BB0DE0F00BA7A8D /* ItemsFilterViewModel.swift in Sources */,
 				CE32A19E2BAA2108001E8C8F /* User.swift in Sources */,
 			);
