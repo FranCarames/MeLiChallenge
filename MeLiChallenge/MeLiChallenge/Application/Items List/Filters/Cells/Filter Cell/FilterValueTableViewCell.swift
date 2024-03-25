@@ -10,14 +10,15 @@ import UIKit
 final class FilterValueTableViewCell: UITableViewCell {
     
     @IBOutlet weak var filterValueLabel: UILabel!
+    @IBOutlet weak var isSelectedImage: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
     }
     
-    func setup(with filterValue: FilterValue, isSelected: Bool) {
-        filterValueLabel.text = filterValue.name
-        accessoryType = isSelected ? .checkmark : .none
+    func setup(with valueName: String?, isSelected: Bool) {
+        filterValueLabel.text = valueName
+        isSelectedImage.image = isSelected ? UIImage(named: "ic_circle_full") : UIImage(named: "ic_circle")
     }
 }

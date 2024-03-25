@@ -23,8 +23,7 @@ extension Requests.Items {
                 "q"         : keyword,
                 "category"  : category,
                 "nickname"  : nickname,
-                "seller_id" : sellerId,
-                "has_pictures" : "yes"
+                "seller_id" : sellerId
             ]
         }
         

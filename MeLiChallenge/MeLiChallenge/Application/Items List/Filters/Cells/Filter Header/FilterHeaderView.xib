@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterHeaderView" customModule="MeLiChallenge" customModuleProvider="target">
             <connections>
                 <outlet property="filterNameLabel" destination="Zu0-5e-ecP" id="m8b-au-h4R"/>
+                <outlet property="isSectionOpenIndicator" destination="27q-ih-dGF" id="4w7-lW-zYN"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -24,20 +26,44 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="27q-ih-dGF">
+                    <rect key="frame" x="328" y="75" width="20" height="20"/>
+                    <color key="tintColor" name="AppColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="1kR-AR-2nz"/>
+                        <constraint firstAttribute="width" secondItem="27q-ih-dGF" secondAttribute="height" multiplier="1:1" id="RIc-ee-qC0"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLK-47-0w2">
+                    <rect key="frame" x="0.0" y="0.0" width="360" height="146"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <connections>
+                        <action selector="headerTapped" destination="-1" eventType="touchUpInside" id="CN2-WR-eHM"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Zu0-5e-ecP" secondAttribute="trailing" constant="24" id="2pg-NS-cvX"/>
+                <constraint firstItem="Zu0-5e-ecP" firstAttribute="centerY" secondItem="27q-ih-dGF" secondAttribute="centerY" constant="0.5" id="6rm-fX-qEE"/>
+                <constraint firstAttribute="trailing" secondItem="27q-ih-dGF" secondAttribute="trailing" constant="12" id="7T0-cj-OeP"/>
                 <constraint firstItem="Zu0-5e-ecP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="90o-aw-9tn"/>
+                <constraint firstAttribute="bottom" secondItem="hLK-47-0w2" secondAttribute="bottom" id="GHw-Q0-1KL"/>
+                <constraint firstItem="hLK-47-0w2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="OjV-K6-0H7"/>
                 <constraint firstItem="Zu0-5e-ecP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Rwx-Dp-lbB"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Zu0-5e-ecP" secondAttribute="bottom" id="dB8-yz-P5T"/>
+                <constraint firstItem="hLK-47-0w2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ilI-PS-Ved"/>
+                <constraint firstAttribute="trailing" secondItem="hLK-47-0w2" secondAttribute="trailing" id="nSZ-LW-sAI"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-12.213740458015266" y="290.14084507042253"/>
         </view>
     </objects>
     <resources>
+        <namedColor name="AppColor">
+            <color red="0.69999998807907104" green="0.20000000298023224" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

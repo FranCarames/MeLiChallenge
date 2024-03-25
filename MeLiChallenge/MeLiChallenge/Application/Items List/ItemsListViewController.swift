@@ -72,12 +72,16 @@ final class ItemsListViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
-    @objc func retryApiCalls() {
-        viewModel.getItems()
-    }
-    
     @IBAction func filtersTapped() {
-        let vc = ItemsFilterViewController(availableFilters: viewModel.itemsResponse.value?.availableFilters ?? [])
+        guard let selectedSort = viewModel.selectedSort.value else { return }
+        
+        let vc = ItemsFilterViewController(
+            selectedSort: selectedSort,
+            availableSorts: viewModel.itemsResponse.value?.availableSorts ?? [], 
+            selectedFilters: viewModel.itemsResponse.value?.filters ?? [],
+            availableFilters: viewModel.itemsResponse.value?.availableFilters ?? []
+        )
+        
         present(BaseNavigationController(rootViewController: vc), animated: true)
     }
 }

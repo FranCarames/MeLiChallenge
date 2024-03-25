@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,24 +18,41 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter Value Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3S-gd-lbK">
-                        <rect key="frame" x="36" y="8" width="356" height="108"/>
+                        <rect key="frame" x="36" y="8" width="336" height="108"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_circle" translatesAutoresizingMaskIntoConstraints="NO" id="byG-rg-Ckl">
+                        <rect key="frame" x="384" y="52" width="20" height="20"/>
+                        <color key="tintColor" name="AppColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="JXl-oT-uc4"/>
+                            <constraint firstAttribute="width" secondItem="byG-rg-Ckl" secondAttribute="height" multiplier="1:1" id="xGy-89-1Di"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="d3S-gd-lbK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="36" id="3Ri-Ip-cfZ"/>
-                    <constraint firstAttribute="trailing" secondItem="d3S-gd-lbK" secondAttribute="trailing" constant="24" id="8lO-we-eGb"/>
+                    <constraint firstItem="byG-rg-Ckl" firstAttribute="leading" secondItem="d3S-gd-lbK" secondAttribute="trailing" constant="12" id="7Tf-RH-Fjp"/>
                     <constraint firstAttribute="bottom" secondItem="d3S-gd-lbK" secondAttribute="bottom" constant="8" id="B9e-gZ-6Ol"/>
+                    <constraint firstItem="byG-rg-Ckl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="DMU-hE-Y5W"/>
                     <constraint firstItem="d3S-gd-lbK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="E42-dF-scZ"/>
+                    <constraint firstAttribute="trailing" secondItem="byG-rg-Ckl" secondAttribute="trailing" constant="12" id="QE5-O4-kSp"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="filterValueLabel" destination="d3S-gd-lbK" id="69b-FV-u9Z"/>
+                <outlet property="isSelectedImage" destination="byG-rg-Ckl" id="OLr-Aq-t0N"/>
             </connections>
             <point key="canvasLocation" x="87.022900763358777" y="69.718309859154928"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ic_circle" width="20.333333969116211" height="20"/>
+        <namedColor name="AppColor">
+            <color red="0.69999998807907104" green="0.20000000298023224" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

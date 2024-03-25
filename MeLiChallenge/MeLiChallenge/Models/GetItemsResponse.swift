@@ -16,7 +16,7 @@ final class GetItemsResponse: Mappable {
     var results:                [MeLiItem] = []
     var sort:                   SortType?
     var availableSorts:         [SortType] = []
-//    var filters
+    var filters:                [GetItemsFilter] = []
     var availableFilters:       [GetItemsFilter] = []
 //    var pdpTracking
     
@@ -29,7 +29,7 @@ final class GetItemsResponse: Mappable {
         results                <- map["results"]
         sort                   <- map["sort"]
         availableSorts         <- map["available_sorts"]
-//        filters                <- map["filters"]
+        filters                <- map["filters"]
         availableFilters       <- map["available_filters"]
 //        pdpTracking            <- map["pdp_tracking"]
     }

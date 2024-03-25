@@ -43,8 +43,6 @@
 		CE618EE32BB0CEF500BA7A8D /* Cosmos+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE618EE22BB0CEF500BA7A8D /* Cosmos+Settings.swift */; };
 		CE618EE72BB0D3E600BA7A8D /* ItemsFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE618EE52BB0D3E600BA7A8D /* ItemsFilterViewController.swift */; };
 		CE618EE82BB0D3E600BA7A8D /* ItemsFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE618EE62BB0D3E600BA7A8D /* ItemsFilterViewController.xib */; };
-		CE618EEC2BB0D4E000BA7A8D /* QuerySortTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE618EEA2BB0D4E000BA7A8D /* QuerySortTypeTableViewCell.swift */; };
-		CE618EED2BB0D4E000BA7A8D /* QuerySortTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE618EEB2BB0D4E000BA7A8D /* QuerySortTypeTableViewCell.xib */; };
 		CE618EF12BB0DD2B00BA7A8D /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE618EF02BB0DD2B00BA7A8D /* BaseView.swift */; };
 		CE618EF32BB0DD4A00BA7A8D /* FilterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE618EF22BB0DD4A00BA7A8D /* FilterHeaderView.swift */; };
 		CE618EF52BB0DDA200BA7A8D /* FilterHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE618EF42BB0DDA200BA7A8D /* FilterHeaderView.xib */; };
@@ -101,8 +99,6 @@
 		CE618EE22BB0CEF500BA7A8D /* Cosmos+Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cosmos+Settings.swift"; sourceTree = "<group>"; };
 		CE618EE52BB0D3E600BA7A8D /* ItemsFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsFilterViewController.swift; sourceTree = "<group>"; };
 		CE618EE62BB0D3E600BA7A8D /* ItemsFilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemsFilterViewController.xib; sourceTree = "<group>"; };
-		CE618EEA2BB0D4E000BA7A8D /* QuerySortTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySortTypeTableViewCell.swift; sourceTree = "<group>"; };
-		CE618EEB2BB0D4E000BA7A8D /* QuerySortTypeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuerySortTypeTableViewCell.xib; sourceTree = "<group>"; };
 		CE618EF02BB0DD2B00BA7A8D /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		CE618EF22BB0DD4A00BA7A8D /* FilterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHeaderView.swift; sourceTree = "<group>"; };
 		CE618EF42BB0DDA200BA7A8D /* FilterHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterHeaderView.xib; sourceTree = "<group>"; };
@@ -374,15 +370,6 @@
 			path = Filters;
 			sourceTree = "<group>";
 		};
-		CE618EE92BB0D4C500BA7A8D /* Sort Type Cell */ = {
-			isa = PBXGroup;
-			children = (
-				CE618EEA2BB0D4E000BA7A8D /* QuerySortTypeTableViewCell.swift */,
-				CE618EEB2BB0D4E000BA7A8D /* QuerySortTypeTableViewCell.xib */,
-			);
-			path = "Sort Type Cell";
-			sourceTree = "<group>";
-		};
 		CE618EEE2BB0DCCB00BA7A8D /* Filter Header */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,7 +401,6 @@
 			children = (
 				CE618EEE2BB0DCCB00BA7A8D /* Filter Header */,
 				CE618EEF2BB0DCD200BA7A8D /* Filter Cell */,
-				CE618EE92BB0D4C500BA7A8D /* Sort Type Cell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -515,7 +501,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE618EED2BB0D4E000BA7A8D /* QuerySortTypeTableViewCell.xib in Resources */,
 				CE3B1D4B2BAB7F2C0078967D /* CategoriesListViewController.xib in Resources */,
 				CE618EE82BB0D3E600BA7A8D /* ItemsFilterViewController.xib in Resources */,
 				CE618EE12BB0C1A700BA7A8D /* ItemImageCollectionViewCell.xib in Resources */,
@@ -611,7 +596,6 @@
 				CE618EDA2BB0AD6800BA7A8D /* ItemDetailViewModel.swift in Sources */,
 				CE32A1992BAA198C001E8C8F /* NetworkRequest.swift in Sources */,
 				CE618EF32BB0DD4A00BA7A8D /* FilterHeaderView.swift in Sources */,
-				CE618EEC2BB0D4E000BA7A8D /* QuerySortTypeTableViewCell.swift in Sources */,
 				CE618EFC2BB0E0EC00BA7A8D /* FilterValueTableViewCell.swift in Sources */,
 				CED1F05C2BAB9CB700A1EC75 /* ItemsListViewController.swift in Sources */,
 				CE3B1D552BAB87010078967D /* CategoryItemTableViewCell.swift in Sources */,

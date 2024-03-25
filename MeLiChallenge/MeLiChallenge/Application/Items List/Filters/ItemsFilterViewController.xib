@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ItemsFilterViewController" customModule="MeLiChallenge" customModuleProvider="target">
             <connections>
+                <outlet property="acceptButton" destination="dq4-mi-yIB" id="HcE-AI-dlc"/>
+                <outlet property="cancelButton" destination="czK-sL-fKq" id="YjF-M6-gQe"/>
                 <outlet property="tableView" destination="YQz-1r-IKT" id="QDI-UE-zyC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -28,6 +30,36 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Ttx-bz-Toc">
+                    <rect key="frame" x="16" y="762" width="361" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dq4-mi-yIB">
+                            <rect key="frame" x="0.0" y="0.0" width="174.66666666666666" height="40"/>
+                            <color key="backgroundColor" name="AppColor"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Aceptar">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="acceptChangesTapped" destination="-1" eventType="touchUpInside" id="bnl-V6-ZiF"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czK-sL-fKq">
+                            <rect key="frame" x="186.66666666666663" y="0.0" width="174.33333333333337" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Cancelar">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="cancelChangesTapped" destination="-1" eventType="touchUpInside" id="XwH-mP-wkb"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="6QY-9x-nHe"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -37,8 +69,11 @@
                 <constraint firstItem="YQz-1r-IKT" firstAttribute="top" secondItem="Hg6-tl-yeO" secondAttribute="bottom" id="3Tu-q8-Kcn"/>
                 <constraint firstAttribute="trailing" secondItem="Hg6-tl-yeO" secondAttribute="trailing" id="4lG-9v-L4d"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="YQz-1r-IKT" secondAttribute="bottom" id="EaQ-hD-77i"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ttx-bz-Toc" secondAttribute="trailing" constant="16" id="QWy-Nc-1lf"/>
                 <constraint firstItem="Hg6-tl-yeO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VJw-M8-48e"/>
                 <constraint firstItem="YQz-1r-IKT" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="tro-r4-KHr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Ttx-bz-Toc" secondAttribute="bottom" constant="16" id="ySj-11-nt4"/>
+                <constraint firstItem="Ttx-bz-Toc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="z0L-qm-7SI"/>
                 <constraint firstItem="Hg6-tl-yeO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zwc-EV-LNN"/>
             </constraints>
             <point key="canvasLocation" x="139.69465648854961" y="41.549295774647888"/>
