@@ -2,7 +2,7 @@
 //  Items.swift
 //  MeLiChallenge
 //
-//  Created by InfinixSoft on 19/03/2024.
+//  Created by Franco Carames on 19/03/2024.
 //
 
 import Foundation

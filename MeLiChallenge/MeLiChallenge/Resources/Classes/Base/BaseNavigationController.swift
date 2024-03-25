@@ -2,7 +2,7 @@
 //  BaseNavigationController.swift
 //  MeLiChallenge
 //
-//  Created by InfinixSoft on 24/03/2024.
+//  Created by Franco Carames on 24/03/2024.
 //
 
 import UIKit

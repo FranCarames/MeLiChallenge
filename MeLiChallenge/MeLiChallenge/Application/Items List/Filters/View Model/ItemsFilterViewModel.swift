@@ -2,7 +2,7 @@
 //  ItemsFilterViewModel.swift
 //  MeLiChallenge
 //
-//  Created by InfinixSoft on 24/03/2024.
+//  Created by Franco Carames on 24/03/2024.
 //
 
 import Foundation
@@ -139,7 +139,12 @@ extension ItemsFilterViewController {
         
         func resetFiltersTapped() {
             sorts.forEach { $0.isSelected = false }
-            sorts.first?.isSelected = true
+            
+            if let relevanceSort = sorts.first(where: { $0.id == "relevance" }) {
+                relevanceSort.isSelected = true
+            } else {
+                sorts.first?.isSelected = true
+            }
             
             filters.forEach { filter in
                 if filter.id != "category" {

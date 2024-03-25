@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  MeLiChallenge
 //
-//  Created by InfinixSoft on 19/03/2024.
+//  Created by Franco Carames on 19/03/2024.
 //
 
 import UIKit
@@ -46,8 +46,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
 
 extension SceneDelegate {

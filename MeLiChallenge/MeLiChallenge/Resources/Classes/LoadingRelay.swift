@@ -2,7 +2,7 @@
 //  LoadingRelay.swift
 //  MeLiChallenge
 //
-//  Created by InfinixSoft on 20/03/2024.
+//  Created by Franco Carames on 20/03/2024.
 //
 
 import Foundation

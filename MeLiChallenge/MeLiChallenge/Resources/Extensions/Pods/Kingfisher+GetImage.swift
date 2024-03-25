@@ -2,7 +2,7 @@
 //  Kingfisher+GetImage.swift
 //  MeLiChallenge
 //
-//  Created by InfinixSoft on 21/03/2024.
+//  Created by Franco Carames on 21/03/2024.
 //
 
 import Foundation
